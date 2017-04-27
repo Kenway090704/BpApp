@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bp="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:id="@+id/main_content_sv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <com.bemetoy.bp.uikit.widget.BpEditText
+                    android:id="@+id/login_username_ed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/auth_input_focus_bg"
+                    bp:split_view_color="@color/red"
+                    bp:split_view_color_unfocus="@color/grey"
+                    bp:drawable_focus="@drawable/username_notice_focus"
+                    bp:drawable_un_focus ="@drawable/username_notice_unfocus"
+                    bp:bg_un_focus="@drawable/auth_input_unfocus_bg"
+                    bp:bg_focus="@drawable/auth_input_focus_bg"
+                    bp:hint="@string/username_hint"
+                    >
+                    <Button
+                        android:id="@+id/clear_btn"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:background="@drawable/btn_clear"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="8dp"
+                        android:visibility="invisible"
+                        />
+                </com.bemetoy.bp.uikit.widget.BpEditText>
+
+                <com.bemetoy.bp.uikit.widget.BpEditText
+                    android:id="@+id/password_ed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/smaller_padding"
+                    android:background="@drawable/auth_input_focus_bg"
+                    bp:split_view_color="@color/red"
+                    bp:split_view_color_unfocus="@color/grey"
+                    bp:drawable_focus="@drawable/pwd_notice_focus"
+                    bp:drawable_un_focus ="@drawable/pwd_notice_unfocus"
+                    bp:bg_un_focus="@drawable/auth_input_unfocus_bg"
+                    bp:bg_focus="@drawable/auth_input_focus_bg"
+                    bp:inputType="password"
+                    bp:hint="@string/password_hint"
+                    >
+
+                    <ToggleButton
+                        android:id="@+id/pwd_tb"
+                        android:layout_width="84dp"
+                        android:layout_height="36dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="8dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/pwd_show_selector"
+                        android:textOff=""
+                        android:textOn=""
+                        />
+
+                </com.bemetoy.bp.uikit.widget.BpEditText>
+            </LinearLayout>
+        </ScrollView>
+
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/loginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/main_content_sv"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:padding="12dp"
+            android:background="@color/red_login"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            bp:font="yahei"
+            />
+
+    </RelativeLayout>
+</layout>
+

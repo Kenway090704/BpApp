@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/dialog_normal_padding"
+        android:paddingLeft="@dimen/dialog_normal_padding"
+        android:paddingRight="@dimen/large_padding"
+        android:paddingBottom="@dimen/smaller_padding"
+        android:background="@drawable/dialog_bg"
+        >
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/update"
+            style="@style/DefaultDialogTitleStyle"
+            />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="135dp"
+            android:layout_marginTop="@dimen/smaller_padding"
+            >
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/content_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:textColor="@color/light_blue"
+                android:text="奥飞福利更新"
+                tools:text="成功报名参加全国赛\r\n测试测试"
+                />
+        </ScrollView>
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/confirm_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:background="@drawable/home_update_now_drawable" />
+
+    </LinearLayout>
+</layout>
+

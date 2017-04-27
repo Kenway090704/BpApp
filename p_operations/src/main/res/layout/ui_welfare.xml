@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/game_detail_bg">
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            style="@style/BackBtnStyle"
+            android:layout_centerVertical="false"
+           />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/welfare_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/page_title_margin_top"
+            android:text="@string/operation_title"
+            style="@style/DefaultTextViewTitleStyle"
+            />
+
+        <com.bemetoy.bp.uikit.widget.recyclerview.VRecyclerView
+            android:id="@+id/welfare_vr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/back_btn"
+            android:layout_alignLeft="@+id/back_btn"
+            android:layout_marginLeft="@dimen/back_btn_margin_left"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:layout_marginRight="@dimen/next_btn_margin_right"
+            />
+
+    </RelativeLayout>
+
+</layout>
+

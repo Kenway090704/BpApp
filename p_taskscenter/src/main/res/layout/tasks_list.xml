@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.bemetoy.bp.uikit.widget.recyclerview.VRecyclerView
+            android:id="@+id/data_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/placeHolder_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/tasks_center_no_task"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large_text_size"
+            android:visibility="invisible"
+            />
+
+    </RelativeLayout>
+
+
+
+</layout>

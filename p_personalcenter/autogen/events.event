@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<events package="com.bemetoy.bp.autogen.events" template="event.tmpl" >
+    <event name="AddressesChange">
+
+    </event>
+
+    <event name="NicknameChange">
+
+    </event>
+
+</events>

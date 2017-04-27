@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.bemetoy.bp.uikit.widget.BpRadioButton
+        android:id="@+id/avatar_rb"
+        android:padding="@dimen/smallest_padding"
+        android:layout_width="@dimen/choose_avatar_ui_avatar_default_size"
+        android:layout_height="@dimen/choose_avatar_ui_avatar_default_size"
+        app:roundAsCircle="true"
+        android:background="@drawable/choose_avatar_bg"
+        app:bg_checked="@drawable/avatar_checked" />
+</layout>
+

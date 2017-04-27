@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.bemetoy.bp.uikit.widget.recyclerview.VRecyclerView
+            android:id="@+id/data_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/place_holder_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"
+            android:text="@string/notice_no_personal_msg"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large_text_size"
+            />
+
+    </RelativeLayout>
+
+
+</layout>

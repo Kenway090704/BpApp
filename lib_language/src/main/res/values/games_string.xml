@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="game_tab_time">时间</string>
+    <string name="game_tab_location">地点</string>
+    <string name="game_tab_personal">个人</string>
+    <string name="game_detail">详情查询</string>
+    <string name="game_type">类型</string>
+    <string name="game_time">时间</string>
+    <string name="player_count">人数</string>
+    <string name="game_address">赛点</string>
+    <string name="distance">距离</string>
+    <string name="address_detail">地址</string>
+    <string name="address_phone">电话</string>
+    <string name="referee">教练</string>
+    <string name="reward">奖品</string>
+    <string name="game_reward">比赛奖品</string>
+    <string name="game_result">比赛结果</string>
+    <string name="speedway">赛道</string>
+    <string name="game_history">赛事历史</string>
+    <string name="remark">详情</string>
+    <string name="query_address">查询地址</string>
+    <string name="join">报名</string>
+    <string name="joined">已报名</string>
+    <string name="on_going">进行中</string>
+    <string name="join_successful">报名成功</string>
+    <string name="join_failed">报名失败</string>
+    <string name="person">人</string>
+    <string name="joined_people">参赛人数</string>
+    <string name="get_game_failed">获取赛事详情失败</string>
+    <string name="meter" formatted="false">%s米</string>
+    <string name="no_account_game">您还没有报名参加赛事</string>
+    <string name="no_game_in_region">当前地区没有赛事，您可以点击右上角查看其他地区的赛事</string>
+    <string name="no_game_and_address_in_region">当前地区没有任何赛事和赛点，可以点击右上切换地区</string>
+
+
+    <string name="join_game_successful" formatted="false">成功报名参加\"%s\"</string>
+
+    <string name="horizontal_speed_way">水平赛道</string>
+    <string name="vertical_speed_way">垂直赛道</string>
+    <string name="eight_speed_way">八字赛道</string>
+    <string name="spiral_speed_way">螺旋赛道</string>
+
+    <string name="user_location_is_null">暂未获得您的位置信息,请重新定位</string>
+
+    <string name="getting_location">定位中...</string>
+    <string name="get_location_fail">定位失败</string>
+
+
+</resources>

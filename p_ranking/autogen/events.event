@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<events package="com.bemetoy.bp.autogen.events" template="event.tmpl" >
+    <event name="GoToMyRank">
+        <data>
+            <field name="isMyRanking" type="boolean" default="false" />
+        </data>
+    </event>
+</events>

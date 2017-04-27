@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="part"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.GoodsListResponse.Item"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/part_item_rl"
+        android:background="@drawable/dialog_bg"
+        android:weightSum="3"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/content_rl"
+            android:layout_weight="2.2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/part_im"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/smaller_padding"
+                bind:actualImageScaleType="fitXY"
+                bind:imageUrl='@{part.image}'
+                bind:placeholderImage="@drawable/part_item_placeholder"
+                bind:placeholderImageScaleType="fitXY"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/part_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/part_im"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/smallest_padding"
+                android:layout_marginRight="@dimen/min_padding"
+                style="@style/DefaultTextViewStyle"
+                android:gravity="left"
+                android:text='@{part.name}'
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@color/white"
+                android:textSize="@dimen/part_item_txt_size"
+                tools:text="直线型"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/score_tv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:gravity="center"
+            android:background="@drawable/need_score_bg"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mall_need_score_txt"
+                android:layout_gravity="center" />
+
+            <com.bemetoy.bp.uikit.widget.BpImageTextView
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginLeft="8dp"
+                bind:imageValue='@{part.score}'
+                />
+        </LinearLayout>
+    </LinearLayout>
+</layout>
+

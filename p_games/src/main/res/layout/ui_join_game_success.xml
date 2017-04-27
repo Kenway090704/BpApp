@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/large_padding"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        android:paddingBottom="@dimen/smallest_padding"
+        android:background="@drawable/dialog_bg"
+        >
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/congratulation"
+            style="@style/DefaultDialogTitleStyle"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="135dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/smaller_padding"
+            style="@style/DefaultDialogContentStyle"
+            android:text="成功报名参加全国赛"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/confirm_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:background="@drawable/game_join_game_successful_confirm_drawable"
+            />
+
+    </LinearLayout>
+</layout>
+

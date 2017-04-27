@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks_center_online">线上</string>
+    <string name="tasks_center_offline">线下</string>
+    <string name="tasks_center_task_state_get_reward">领取奖励</string>
+    <string name="tasks_center_task_state_todo">去完成</string>
+    <string name="tasks_center_task_state_done">已完成</string>
+
+    <string name="tasks_center_task_detail_title">任务介绍</string>
+    <string name="tasks_center_task_name">任务名称：</string>
+    <string name="tasks_center_task_type">任务类别：</string>
+    <string name="tasks_center_task_desc">任务介绍：</string>
+    <string name="tasks_center_task_on">线上任务</string>
+    <string name="tasks_center_task_off">线下任务</string>
+
+    <string name="tasks_center_get_reward_failed">获取奖励失败</string>
+    <string name="tasks_center_get_reward" formatted="false">恭喜你获得积分：%s分, 声望：%s点</string>
+    <string name="tasks_center_get_score" formatted="false">恭喜你获得积分：%s分</string>
+    <string name="tasks_center_get_popularity" formatted="false">恭喜你获得声望：%s点</string>
+
+    <string name="tasks_center_no_task">暂无任务</string>
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="friends_load_friends_failed">加载好友列表失败</string>
+    <string name="add_friend_title">添加好友</string>
+    <string name="relative_user">相关用户</string>
+    <string name="none_relative_user">该玩家不存在，请重新搜索</string>
+    <string name="search_user">搜索：%s</string>
+    <string name="user_detail_title">玩家详情</string>
+    <string name="user_prov">所在省份：%s</string>
+    <string name="user_city">所在城市：%s</string>
+    <string name="user_state_rank">全国总排名：%s</string>
+    <string name="user_prov_rank">全省总排名：%s</string>
+    <string name="friend_delete_friend">删除好友</string>
+    <string name="friend_add_request_send">请求已发送</string>
+    <string name="friend_add_request_failed">请求发送失败</string>
+    <string name="friend_delete_friend_successfully">删除好友成功</string>
+    <string name="friend_delete_friend_failed">删除好友失败</string>
+    <string name="friend_search_hint">请输入玩家昵称</string>
+
+    <string name="friend_no_friends">您暂时没有好友，请添加好友</string>
+    <string name="friends_confirm_delete">确认删除</string>
+    <string name="friends_name_confirm" formatted="false">您将删除好友“%s”，是否确认？</string>
+    <string name="friends_add_response_notice" formateed="false">已添加玩家“%s”为好友\r\n请耐心等待对方验证</string>
+    <string name="friends_add_confirm" formateed="false">您将添加“%s”为好友，是否确认？</string>
+
+</resources>

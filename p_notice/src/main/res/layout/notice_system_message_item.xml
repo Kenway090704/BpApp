@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="content" type="String"/>
+        <variable name="time" type="String"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/notice_item_bg"
+        android:paddingBottom="@dimen/smallest_padding"
+        android:paddingTop="@dimen/smaller_padding"
+        android:paddingLeft="20dp">
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/personal_address_list_item_txt_size_1"
+            android:textColor="@color/yellow"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:text="@{time}"
+            tools:text="2016/05/16"/>
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/personal_address_list_item_txt_size_2"
+            android:textColor="@color/white"
+            android:layout_below="@id/time_tv"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/smallest_padding"
+            android:gravity="left|center_vertical"
+            android:text="@{content}"
+            tools:text="好友“飞鹰”成功报名“第四届奥飞四驱车大奖赛”"/>
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/queryDetail_btn"
+            style="@style/ListitemActionButtonStyle_4"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/notice_query_detail_drawable"/>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.bemetoy.bp.protocols.ProtocolConstants"/>
+
+        <variable
+            name="strId"
+            type="int"/>
+
+        <variable
+            name="task"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.Task"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg">
+
+        <RelativeLayout
+            android:id="@+id/title_bar_lt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/back_btn"
+                style="@style/BackBtnStyle"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/page_title_margin_top"
+                android:layout_centerHorizontal="true"
+                style="@style/DefaultTextViewTitleStyle"
+                android:text="@string/tasks_center_task_detail_title"
+                android:textColor="@color/white"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/action_btn"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/next_btn_margin_right"
+                android:layout_marginTop="11dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                />
+        </RelativeLayout>
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/task_im"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/task_image_height"
+            android:layout_marginLeft="@dimen/large_padding"
+            android:layout_marginRight="@dimen/large_padding"
+            android:layout_marginTop="@dimen/min_padding"
+            android:layout_below="@+id/title_bar_lt"
+            bind:imageUrl="@{task.image}"
+            bind:placeholderImageScaleType="fitCenter"
+            bind:actualImageScaleType="fitXY"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/task_im"
+            android:layout_alignRight="@+id/task_im"
+            android:layout_below="@+id/task_im">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/normal_padding"
+                android:orientation="vertical"
+                android:background="@color/task_detail_bg"
+                android:paddingTop="@dimen/smaller_padding"
+                android:paddingBottom="4dp"
+                >
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TaskDetailLabelStyle"
+                    android:text="@string/tasks_center_task_name"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TaskDetailValueStyle"
+                    android:text="@{task.name}"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/normal_padding"
+                    style="@style/TaskDetailLabelStyle"
+                    android:text="@string/tasks_center_task_type"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TaskDetailValueStyle"
+                    android:text='@{task.type == ProtocolConstants.TaskType.ONLINE ? @string/tasks_center_task_on : @string/tasks_center_task_off}'
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/normal_padding"
+                    style="@style/TaskDetailLabelStyle"
+                    android:text="@string/tasks_center_task_desc"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TaskDetailValueStyle"
+                    android:text='@{task.desc}' />
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</layout>

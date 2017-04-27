@@ -1,0 +1,50 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bemetoy.bp.plugin.personalcenter">
+
+    <application
+        android:allowBackup="true">
+
+        <activity
+            android:name=".ui.PersonalCenterUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.AchievementUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.AchievementDetailInfoUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.GamePerformanceUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.AddressListUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.AddNewAddressUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.EditAddressUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.EditNicknameUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.ChooseAvatarUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.AchievementRuleUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+    </application>
+
+</manifest>

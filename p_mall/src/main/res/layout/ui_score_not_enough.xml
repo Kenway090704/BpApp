@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        android:padding="16dp"
+        >
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/score_not_enough_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="@string/sorry"
+            style="@style/DefaultDialogTitleStyle"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dialog_content_height"
+            android:layout_below="@+id/score_not_enough_tv"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/score_not_enough"
+            android:gravity="center"
+            style="@style/DefaultDialogContentStyle"
+            />
+
+        <LinearLayout
+            style="@style/DialogActionBtnLayoutStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/content_tv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/cancel_btn"
+                style="@style/DefaultButtonStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_view"
+                android:layout_toLeftOf="@+id/layout_view"
+                android:background="@drawable/common_cancel_drawable" />
+
+            <Button
+                android:id="@+id/confirm_btn"
+                style="@style/DefaultButtonStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/layout_view"
+                android:layout_toRightOf="@+id/cancel_btn"
+                android:background="@drawable/mall_to_do_task_drawable" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
+

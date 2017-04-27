@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        defaultPublishConfig  rootProject.ext.android["defaultPublishConfig"]
+        publishNonDefault rootProject.ext.android["publishNonDefault"]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/main/java/', 'build/generated/source/autogen']
+            }
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile rootProject.ext.dependencies["junit"]
+
+    debugCompile project(path:':lib_stub', configuration: "debug")
+    releaseCompile project(path:':lib_stub', configuration: "release")
+}
+
+
+apply from: '../autogen.gradle'

@@ -1,0 +1,142 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="AppTheme.NoActionBar" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="AppTheme.Dialog" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@color/translucent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+
+
+    <style name="DefaultEditTextStyle">
+        <item name="android:background">@drawable/input_box</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:imeOptions">flagNoFullscreen</item>
+    </style>
+
+    <style name="DefaultPasswordEditTextStyle" parent="DefaultEditTextStyle">
+        <item name="android:inputType">textPassword</item>
+        <item name="android:digits">0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</item>
+    </style>
+
+    <style name="BackBtnStyle">
+        <item name="android:layout_width">@dimen/normal_avatar_width</item>
+        <item name="android:layout_height">@dimen/normal_avatar_width</item>
+        <item name="android:src">@drawable/btn_back_selector</item>
+        <item name="android:paddingLeft">@dimen/back_btn_margin_left</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:background">@color/translucent</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="ExpProgressBar">
+        <item name="backgroundDrawable">@drawable/exp_background</item>
+        <item name="progressDrawable">@drawable/exp_value</item>
+        <item name="android:layout_width">@dimen/exp_bar_length</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="txtSize">@dimen/normal_text_size</item>
+    </style>
+
+    <style name="TaskDetailLabelStyle" parent="DefaultTextViewStyle">
+        <item name="android:textColor">@color/golden</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+    </style>
+
+    <style name="TaskDetailValueStyle" parent="DefaultTextViewStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+    </style>
+
+    <!--TODO 去掉layout_centerHorizontal 和 android:layout_gravity-->
+    <style name="DefaultDialogTitleStyle">
+        <item name="android:textColor">@color/golden</item>
+        <item name="android:textSize">@dimen/large_text_size</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="DefaultDialogContentStyle">
+        <item name="android:textColor">@color/light_blue</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="DefaultTextViewTitleStyle">
+        <item name="android:textColor">#0E4A8F</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/page_title_txt_size</item>
+    </style>
+
+    <style name="DefaultTabStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="stroke_width">1dp</item>
+        <item name="stroke_color">@color/black</item>
+        <item name="android:paddingTop">@dimen/smallest_padding</item>
+        <item name="android:paddingBottom">@dimen/smallest_padding</item>
+        <item name="android:paddingLeft">@dimen/normal_padding</item>
+        <item name="android:paddingRight">@dimen/normal_padding</item>
+        <item name="android:textSize">@dimen/view_pager_title_text_size</item>
+    </style>
+
+    <style name="PageTitleBarStyle">
+        <item name="android:paddingTop">@dimen/min_padding</item>
+        <item name="android:layout_marginBottom">@dimen/title_bar_margin_bottom</item>
+    </style>
+
+    <style name="IndexUIButtonStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="DefaultActionButtonStyle_5" parent="DefaultButtonStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="DefaultActionButtonStyle_4" parent="DefaultButtonStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="DefaultActionButtonStyle_2" parent="DefaultButtonStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+
+    <style name="DialogActionBtnLayoutStyle">
+        <item name="android:paddingLeft">@dimen/normal_padding</item>
+        <item name="android:paddingRight">@dimen/normal_padding</item>
+    </style>
+
+    <style name="ListitemActionButtonStyle_2">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="ListitemActionButtonStyle_4" parent="DefaultButtonStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+</resources>

@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bemetoy.bp.plugin.tasks">
+
+    <application
+        android:allowBackup="true">
+
+        <activity
+            android:name=".ui.TasksCenterUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".ui.TaskDetailUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".ui.TaskRewardUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+    </application>
+
+</manifest>

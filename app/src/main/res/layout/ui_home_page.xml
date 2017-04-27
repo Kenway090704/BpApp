@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bp="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.bemetoy.bp.sdk.utils.Util"/>
+        <variable
+            name="accountInfo"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.AccountInfo"/>
+        <variable name="tabTextSize" type="int"/>
+    </data>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/home_bg"
+        android:paddingTop="4dp">
+
+        <RelativeLayout
+            android:id="@+id/header_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/avatar_iv"
+                android:layout_width="@dimen/normal_avatar_width"
+                android:layout_height="@dimen/normal_avatar_width"
+                android:padding="4dp"
+                android:layout_marginRight="@dimen/normal_padding"
+                android:layout_marginLeft="@dimen/normal_padding"
+                android:layout_centerVertical="true"
+                android:background="@drawable/avatar_bg"
+                bp:roundAsCircle="true" />
+
+
+            <LinearLayout
+                android:id="@+id/info_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/avatar_iv"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                >
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/nickname_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/title_username_text_size"
+                    android:text='@{accountInfo.name + " " + accountInfo.levelName}'
+                    android:textColor="@color/nick_name_color"
+                    bind:text="辛巴吉野"/>
+
+                <com.bemetoy.bp.uikit.MyProgressBar
+                    android:id="@+id/exp_pb"
+                    android:layout_width="@dimen/exp_bar_length"
+                    android:layout_height="@dimen/exp_bar_height"
+                    android:layout_marginTop="@dimen/smallest_padding"
+                    bp:backgroundDrawable="@drawable/exp_background"
+                    bp:progressDrawable="@drawable/exp_value"
+                    bp:progress="@{accountInfo.totalExp}"
+                    bp:max="@{accountInfo.levelExp}"
+                    bp:txtSize="@dimen/normal_text_size"
+                    />
+            </LinearLayout>
+
+
+            <com.bemetoy.bp.uikit.widget.BpImageTextView
+                android:id="@+id/integral_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/score_image_size"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:layout_alignBottom="@+id/info_ll"
+                bind:imageValue="@{accountInfo.score}"
+                />
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/integral_tips_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/integral_tv"
+                android:layout_marginLeft="@dimen/min_padding"
+                android:layout_marginRight="@dimen/smallest_padding"
+                android:layout_alignBottom="@+id/info_ll"
+                android:text="@string/personal_center_integral"
+                android:textSize="16dp"
+                android:textColor="@color/nick_name_color"
+                bind:text="@string/personal_center_integral"/>
+
+            <ImageView
+                android:layout_width="@dimen/score_icon_size"
+                android:layout_alignBottom="@+id/info_ll"
+                android:layout_height="@dimen/score_icon_size"
+                android:layout_toLeftOf="@id/integral_tips_tv"
+                android:src="@drawable/user_score"/>
+        </RelativeLayout>
+
+        <com.bemetoy.bp.ui.adapter.SkewLinearLayout
+            android:id="@+id/hot_games_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="-52dp"
+            android:layout_below="@+id/header_bar"
+            android:layout_above="@+id/function_ll"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/smallest_padding"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/container_vg"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="8dp"
+                android:orientation="horizontal">
+
+                <com.bemetoy.bp.uikit.widget.recyclerview.VRecyclerView
+                    android:id="@+id/data_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                </com.bemetoy.bp.uikit.widget.recyclerview.VRecyclerView>
+
+                <LinearLayout
+                    android:id="@+id/my_car_ll"
+                    android:layout_width="@dimen/home_window_width"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="-36dp"
+                    android:orientation="vertical"
+                    android:weightSum="8">
+
+                    <LinearLayout
+                        android:id="@+id/my_car_im"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="@integer/home_my_car_weight"
+                        android:background="@drawable/home_my_car_bg"
+                        android:paddingBottom="@dimen/my_car_txt_padding_bottom"
+                        android:gravity="bottom|center_horizontal"
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/home_my_car_txt"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/run_window_im"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="@integer/home_running_weight"
+                        android:background="@drawable/home_running_bg"
+                        android:paddingBottom="@dimen/running_txt_padding_bottom"
+                        android:layout_marginTop="6dp"
+                        android:gravity="bottom|center_horizontal"
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/home_running_txt"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </com.bemetoy.bp.ui.adapter.SkewLinearLayout>
+
+        <LinearLayout
+            android:id="@+id/function_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="@dimen/smallest_padding"
+            android:gravity="center"
+            android:weightSum="8">
+
+            <LinearLayout
+                android:id="@+id/task_ll"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/function_btn_height"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:clickable="true"
+                android:background="@drawable/function_item_head_bg"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/task_btn"
+                    style="@style/HomePageTab.Image"
+                    android:src="@drawable/home_task" />
+                <ImageView
+                    style="@style/HomePageTab.Text"
+                    android:src="@drawable/home_task_txt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/friends_ll"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/function_btn_height"
+                android:layout_marginLeft="@dimen/function_btn_padding"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:clickable="true"
+                android:background="@drawable/function_item_bg"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/friend_btn"
+                    style="@style/HomePageTab.Image"
+                    android:src="@drawable/home_friends" />
+                <ImageView
+                    style="@style/HomePageTab.Text"
+                    android:src="@drawable/home_friends_txt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/shop_ll"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/function_btn_height"
+                android:layout_marginLeft="@dimen/function_btn_padding"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:clickable="true"
+                android:background="@drawable/function_item_bg"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/shop_btn"
+                    style="@style/HomePageTab.Image"
+                    android:src="@drawable/home_mall"/>
+
+                <ImageView
+                    style="@style/HomePageTab.Text"
+                    android:src="@drawable/home_mall_txt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/notice_ll"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/function_btn_height"
+                android:layout_marginLeft="@dimen/function_btn_padding"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:clickable="true"
+                android:background="@drawable/function_item_bg"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <ImageView
+                        android:id="@+id/notice_btn"
+                        style="@style/HomePageTab.Image"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/home_notice"/>
+
+                    <ImageView
+                        android:id="@+id/notice_dot_im"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_toRightOf="@+id/notice_btn"
+                        android:layout_alignTop="@+id/notice_btn"
+                        android:layout_marginLeft="-6dp"
+                        android:visibility="invisible"
+                        android:src="@drawable/notice_dot" />
+                </RelativeLayout>
+
+                <ImageView
+                    style="@style/HomePageTab.Text"
+                    android:layout_below="@+id/notice_btn"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/home_notice_txt"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/tmall_ll"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/function_btn_height"
+                android:layout_marginLeft="@dimen/function_btn_padding"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:clickable="true"
+                android:background="@drawable/function_item_bg"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/tmall_btn"
+                    style="@style/HomePageTab.Image"
+                    android:src="@drawable/home_tmall"/>
+
+                <ImageView
+                    style="@style/HomePageTab.Text"
+                    android:src="@drawable/home_tmall_txt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/databases_ll"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/function_btn_height"
+                android:layout_marginLeft="@dimen/function_btn_padding"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:clickable="true"
+                android:background="@drawable/function_item_bg"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/database_btn"
+                    style="@style/HomePageTab.Image"
+                    android:src="@drawable/home_database"/>
+
+                <ImageView
+                    style="@style/HomePageTab.Text"
+                    android:src="@drawable/home_database_txt" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/rank_ll"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/function_btn_height"
+                android:layout_marginLeft="@dimen/function_btn_padding"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:clickable="true"
+                android:background="@drawable/function_item_bg"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/rank_btn"
+                    style="@style/HomePageTab.Image"
+                    android:src="@drawable/home_ranking"/>
+
+                <ImageView
+                    style="@style/HomePageTab.Text"
+                    android:src="@drawable/home_ranking_txt" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/activation_ll"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/function_btn_height"
+                android:layout_marginLeft="@dimen/function_btn_padding"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:clickable="true"
+                android:background="@drawable/function_item_end_bg"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/activation"
+                    style="@style/HomePageTab.Image"
+                    android:src="@drawable/home_activation"/>
+
+                <ImageView
+                    style="@style/HomePageTab.Text"
+                    android:src="@drawable/home_activation_txt" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

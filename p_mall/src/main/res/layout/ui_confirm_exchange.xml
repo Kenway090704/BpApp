@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        android:paddingLeft="@dimen/dialog_normal_padding"
+        android:paddingRight="@dimen/dialog_normal_padding"
+        android:paddingBottom="@dimen/smaller_padding"
+        >
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/confirm_exchange_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/large_padding"
+            style="@style/DefaultDialogTitleStyle"
+            android:text="@string/confirm_exchange"
+            />
+
+        <LinearLayout
+            android:layout_below="@+id/confirm_exchange_title"
+            android:layout_width="wrap_content"
+            android:id="@+id/content_ll"
+            android:layout_height="@dimen/dialog_content_height"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/smallest_padding"
+            style="@style/DialogActionBtnLayoutStyle"
+            android:orientation="vertical"
+            >
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/content_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/confirm_exchange_title"
+                android:layout_centerHorizontal="true"
+                style="@style/DefaultDialogContentStyle"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/content_im"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/content_tv"
+                android:layout_marginTop="6dp"
+                android:layout_gravity="center_horizontal"
+                bind:actualImageScaleType="fitXY"
+                bind:placeholderImageScaleType="fitXY"
+                bind:placeholderImage="@drawable/part_item_placeholder"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            style="@style/DialogActionBtnLayoutStyle"
+            android:layout_below="@+id/content_ll"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/cancel_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                style="@style/DefaultButtonStyle"
+                android:layout_below="@+id/layout_view"
+                android:layout_toLeftOf="@+id/layout_view"
+                android:background="@drawable/mall_not_exchange_drawable"
+                />
+            <Button
+                android:id="@+id/confirm_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                style="@style/DefaultButtonStyle"
+                android:layout_alignTop="@+id/layout_view"
+                android:layout_toRightOf="@+id/cancel_btn"
+                android:background="@drawable/mall_exchange_confirm_drawable"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
+
+

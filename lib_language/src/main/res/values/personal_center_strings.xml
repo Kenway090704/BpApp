@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="personal_center_logout">注销</string>
+    <string name="personal_center_integral">积分</string>
+    <string name="personal_center_edit">编辑</string>
+    <string name="personal_center_delete">删除</string>
+
+    <string name="personal_avatar">头像</string>
+    <string name="personal_my_address">我的收货地址</string>
+    <string name="personal_my_games">我的赛事</string>
+    <string name="personal_my_achievement">我的成就</string>
+    <string name="personal_logouting">注销中...</string>
+    <string name="personal_logout_error">注销失败，请重试</string>
+    <string name="personal_load_avatar_list_error">加载用户头像列表失败</string>
+    <string name="personal_save_avatar_success">保存头像成功</string>
+    <string name="personal_save_avatar_failed">保存头像失败</string>
+    <string name="personal_choose_avatar_notice">请选择头像</string>
+    <string name="personal_logout_notice">您将退出当前账号登录！</string>
+
+
+    <string name="personal_center_recommended" formatted="false">推荐人：%s</string>
+    <string name="personal_center_register_city" formatted="false">注册城市</string>
+    <string name="personal_center_register_city_content" formatted="false">%s|%s</string>
+    <string name="personal_center_contact_address" formatted="false">联系地址：%s</string>
+    <string name="personal_center_contact_phone" formatted="false">联系电话：%s 联系人：%s</string>
+    <string name="personal_center_popularity">声望值</string>
+    <string name="personal_center_rank">排行榜：</string>
+    <string name="personal_center_has_race_car">拥有赛车：</string>
+    <string name="personal_center_had">已拥有</string>
+    <string name="personal_center_has_car_count">辆车</string>
+    <string name="personal_center_country_popularity_ranking">全国声望总排名</string>
+    <string name="personal_center_speed">飚速</string>
+    <string name="personal_center_total_place" formatted="false">%s声望总排名</string>
+    <string name="personal_center_has_accessories">拥有配件</string>
+    <string name="personal_center_beat_player">超过全国</string>
+    <string name="personal_center_player" formatted="false">的玩家</string>
+
+    <string name="personal_center_achievement_record">赛事成绩</string>
+    <string name="personal_center_achievement">成就</string>
+
+    <string name="personal_center_my_personal_info">我的资料</string>
+    <string name="personal_center_save_and_back">保存并返回</string>
+    <string name="personal_center_nickname">昵&#160;&#160;&#160;称：</string>
+    <string name="personal_center_contact_mobile">联系电话：</string>
+    <string name="personal_center_contact_person">联&#160;系&#160;人：</string>
+    <string name="personal_center_address">联系地址：</string>
+    <string name="personal_center_detail_address">详细地址</string>
+    <string name="personal_center_reg_city">注册城市：</string>
+
+    <string name="personal_center_rule">规则</string>
+
+    <string name="personal_center_edit_nickname">修改昵称</string>
+    <string name="personal_center_edit_nickname_hint">昵称最长为12个字符</string>
+    <string name="personal_center_edit_nickname_tips">昵称只能修改一次，本次修改后，将不可再次修改</string>
+    <string name="personal_center_edit_successfully">修改昵称成功</string>
+    <string name="personal_center_edit_name_empty">修改的昵称不能为空</string>
+
+    <string name="personal_center_edit_account_info_failed">修改个人资料失败</string>
+    <string name="personal_center_edit_account_info_succ">已修改</string>
+    <string name="personal_center_daily_game">PK赛</string>
+    <string name="personal_center_week_game">周赛</string>
+    <string name="personal_center_month_game">月赛</string>
+    <string name="personal_center_pk_game">PK赛</string>
+    <string name="personal_center_my_game_record">我的赛事记录</string>
+
+    <string name="personal_no_weekly_game">您还没报名参加周赛</string>
+    <string name="personal_no_monthly_game">您还没报名参加月赛</string>
+    <string name="personal_no_pk_game">您还没报名参加积分争夺赛</string>
+
+    <string name="personal_center_open_detail">详情查询</string>
+    <string name="personal_center_game_record_item_joined_tips" formatted="false">%d/%d人</string>
+    <string name="personal_center_game_record_item_category" formatted="false">亲子|%s</string>
+
+    <!-- 编辑收货地址 -->
+
+    <string name="personal_center_content_with_colon">%s：</string>
+    <string name="personal_center_my_address_list">管理收货地址</string>
+    <string name="personal_center_default_address">默认地址</string>
+    <string name="personal_center_choose_ship_address">选择收货地址</string>
+    <string name="personal_center_set_as_default_address">设为默认</string>
+    <string name="personal_center_consignee">收&#160;货&#160;人</string>
+    <string name="personal_center_region">所在地区</string>
+    <string name="personal_center_mobile">联系电话</string>
+    <string name="personal_center_detail">详细地址</string>
+    <string name="personal_center_detail_address_hint">请填写详细地址，5到20个字</string>
+    <string name="personal_center_delete_confirm">您确定删除%s的送货地址吗？</string>
+
+    <string name="personal_center_add_new_address_ui_title">新增收货地址</string>
+    <string name="personal_center_edit_address_ui_title">编辑收货地址</string>
+    <string name="personal_center_save">保存</string>
+    <string name="personal_center_delete_address">删除地址</string>
+    <string name="personal_center_save_address_fail">保存地址失败请重试</string>
+    <string name="personal_center_save_address_success">保存地址成功</string>
+
+    <string name="personal_center_add_new_address_shipperson_hint">信息不能为空，且小于10字符</string>
+    <string name="personal_center_add_new_address_phone_hint">请输入手机号码</string>
+    <string name="personal_center_add_new_address_region_hint">点击切换不同地区</string>
+
+    <string name="personal_ship_person_name_invalid">收货人不能为空</string>
+    <string name="personal_center_name_length_error">用户名最长为20个字符</string>
+    <string name="personal_center_region_error">请选择收货人所在地区</string>
+    <string name="personal_center_detail_error">请填写详细地址，且不少于5个字</string>
+
+    <string name="personal_center_delete_error">删除地址失败</string>
+    <string name="personal_center_delete_success">删除地址成功</string>
+    <string name="personal_center_confirm_delete">确认删除</string>
+    <string name="personal_center_too_many_addresses">收货地址过多</string>
+    <string name="personal_center_addresses_at_most_5">您最多只能保存5个收货地址</string>
+    <string name="personal_center_no_address">您暂无收货地址</string>
+
+    <string name="achieve_rule">
+        &#160;登录超人1级&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;登录5次，可以获得此称号\n
+        小试牛刀1级&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;联系习赛5次，可以获得此称号\n
+        PK达人1级&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PK赛获第一名达5次，可以获得此称号\n
+        赛车达人1级&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;活1台赛车，可以获得此称号\n
+        赛车达人2级&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;累计激活5台赛车，可以获得此称号\n
+        赛车达人3级&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;累计激活10台赛车，可以获得此称号\n
+        初级赛车手1级&#160;&#160;&#160;    参与周赛获得前三甲达3次，可以获得此称号\n
+        中级赛车手1级&#160;&#160;&#160;    参与城市赛获得前三甲达2次，可以获得此称号\n
+        高级赛车手1级&#160;&#160;&#160;    参与省赛获得前三甲达1次，可以获得此称号\n
+        权威赛车手1级&#160;&#160;&#160;    参与全国赛获得前三甲达1次，可以获得此称号\n
+        超级机械师1级&#160;&#160;&#160;    赛车完成改装次数达到5次，可以获得此称号\n
+        赛车突击兵1级&#160;&#160;&#160;    市周排行榜获得前三甲达4次，可以获得此称号\n
+        赛车先锋队1级&#160;&#160;&#160;    市总排行榜获得前三甲达10次，可以获得此称号\n
+        赛车模范1级&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;省总排行榜获得前三甲达20次，可以获得此称号\n
+        赛车大神1级&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;全国总排行榜获得前十名达1次，可以获得此称号\n
+    </string>
+</resources>

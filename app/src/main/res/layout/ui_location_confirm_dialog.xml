@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".ui.auth.RegisterLocationUI">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        android:paddingLeft="@dimen/dialog_normal_padding"
+        android:paddingRight="@dimen/dialog_normal_padding">
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_padding"
+            android:text="@string/address_confirm_notice"
+            android:layout_alignParentLeft="true"
+            style="@style/DefaultDialogTitleStyle" />
+
+        <TextView
+            android:id="@+id/location_tips_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dialog_content_height"
+            android:layout_alignLeft="@+id/location_tv"
+            android:layout_below="@+id/location_tv"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:text="@string/address_confirm_notice_tips"
+            style="@style/DefaultDialogContentStyle" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_below="@+id/location_tips_tv"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/small_padding"
+            android:layout_marginTop="@dimen/smaller_padding">
+
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/disagree_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/auth_location_modify_drawable" />
+
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/agree_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/common_queding_drawable" />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+</layout>

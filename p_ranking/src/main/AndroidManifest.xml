@@ -1,0 +1,16 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bemetoy.bp.plugin.ranking">
+
+    <application
+        android:allowBackup="true">
+
+        <activity
+            android:name=".ui.RankingUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize"
+            />
+
+    </application>
+
+</manifest>

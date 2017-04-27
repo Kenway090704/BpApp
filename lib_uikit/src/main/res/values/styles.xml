@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="DefaultButtonStyle">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="stroke_width">1dp</item>
+        <item name="stroke_color">@color/black</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="DefaultTextViewStyle">
+        <item name="font">yahei</item>
+    </style>
+
+
+    <style name="RegisterLabelStyle">
+        <item name="font">yahei</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="BpDialogStyle" parent="android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+</resources>

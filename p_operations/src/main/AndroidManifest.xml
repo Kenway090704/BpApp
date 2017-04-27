@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bemetoy.bp.plugin.operatoins">
+
+    <application
+        android:allowBackup="true">
+
+        <activity android:name=".ui.OperationCenterUI" android:screenOrientation="landscape" android:theme="@style/AppTheme.NoActionBar"/>
+
+    </application>
+
+</manifest>

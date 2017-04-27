@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.bemetoy.bp.stub">
+
+    <application android:allowBackup="true">
+
+        <activity android:name="com.bemetoy.stub.app.WebViewUI"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+    </application>
+
+</manifest>

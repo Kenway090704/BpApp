@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:bp="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/register_bg"
+        >
+
+        <ImageView
+            android:id="@+id/result_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_padding"
+            android:src="@drawable/congratulation"
+            />
+
+
+        <ImageView
+            android:id="@+id/car_im"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="@dimen/normal_padding"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/car_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_padding"
+            android:textColor="@color/white"
+            tools:text="成功激活:基础版神速飞影"
+            android:textSize="@dimen/large_text_size"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/car_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/min_padding"
+            android:textColor="@color/light_blue"
+            android:textSize="@dimen/small_text_size"
+            tools:text="您现在已拥有2辆基础版-神速飞影"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/confirm_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_queren_drawable"
+            android:layout_marginTop="@dimen/normal_padding"
+            />
+
+
+    </LinearLayout>
+
+
+</layout>

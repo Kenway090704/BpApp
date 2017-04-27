@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="GameDetailLabel" parent="DefaultTextViewStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/dark_blue</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="GameDetailValue" parent="GameDetailLabel">
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:background">@null</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="GameRatingBarStyle" parent="@android:style/Widget.Holo.RatingBar.Small">
+        <item name="android:progressDrawable">@drawable/game_ratingbar</item>
+    </style>
+
+
+    <style name="GameImageNoticeStyle" parent="@android:style/Widget.Holo.RatingBar.Small">
+        <item name="android:progressDrawable">@drawable/game_ratingbar</item>
+    </style>
+
+</resources>

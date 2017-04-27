@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bemetoy.bp.uikit.widget.BpButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bubble_bg"
+    android:maxLines="1"
+    android:textColor="@color/white"
+    android:gravity="center"
+    android:padding="@dimen/smallest_padding"
+    >
+
+</com.bemetoy.bp.uikit.widget.BpButton>

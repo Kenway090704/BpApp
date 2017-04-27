@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="locationString"
+            type="String"/>
+
+        <variable
+            name="name"
+            type="String"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        android:paddingBottom="@dimen/small_padding"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/finishTitle_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/large_padding"
+            android:text="恭喜你完成注册"
+            style="@style/DefaultDialogTitleStyle"
+             />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/nickname_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dialog_large_padding"
+            android:layout_below="@+id/finishTitle_tv"
+            android:layout_marginTop="@dimen/max_padding"
+            android:layout_centerHorizontal="false"
+            tools:text="昵称: Neway"
+            style="@style/DefaultDialogContentStyle"
+            android:text="@{@string/register_name(name)}" />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/nickname_tv"
+            android:layout_below="@+id/nickname_tv"
+            android:layout_centerHorizontal="false"
+            style="@style/DefaultDialogContentStyle"
+            android:text="@{locationString}"
+            tools:text="注册地: 广东| 广州" />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/btn_enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/address_tv"
+            android:layout_marginTop="@dimen/max_padding"
+            android:background="@drawable/common_queding_drawable"
+            />
+
+    </RelativeLayout>
+</layout>

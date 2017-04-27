@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="address" type="com.bemetoy.bp.autogen.protocol.Racecar.Address"/>
+        <variable
+            name="chooseMode"
+            type="boolean"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/largest_row_height"
+        android:layout_marginBottom="@dimen/min_padding"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/normal_padding"
+        android:paddingTop="@dimen/smaller_padding"
+        android:paddingBottom="@dimen/smaller_padding"
+        android:background="@drawable/personal_address_list_item_bg">
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/personal_address_list_item_txt_size_1"
+            android:textColor="@color/white"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:text="@{address.contact}"
+            tools:text="张小姐"/>
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/mobile_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/personal_address_list_item_txt_size_1"
+            android:textColor="@color/white"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/name_tv"
+            android:layout_marginLeft="@dimen/normal_padding"
+            android:gravity="left"
+            android:text='@{address.mobile + ""}'
+            tools:text="15677778888"/>
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/personal_address_list_item_txt_size_2"
+            android:textColor="@color/white"
+            android:layout_below="@id/name_tv"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/edit_btn"
+            android:layout_marginTop="@dimen/smallest_padding"
+            android:gravity="left|center_vertical"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text='@{address.province + address.city + (address.district == null ?  address.district : "") + address.detail}'
+            tools:text="广东省深圳市南山区科技大厦12F"/>
+
+        <RadioButton
+            android:id="@+id/default_address_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/half_alpha_white"
+            android:layout_below="@id/title_tv"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:background="@drawable/default_address_selector"
+            android:button="@null" />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/checkbox_label_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/personal_center_default_address"
+            android:layout_toRightOf="@+id/default_address_cb"
+            android:layout_alignBottom="@+id/default_address_cb"
+            android:layout_marginLeft="@dimen/smallest_padding"
+            android:textColor="@color/light_blue"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/delete_btn"
+            style="@style/ListitemActionButtonStyle_2"
+            android:background="@drawable/personal_address_list_delete_drawable"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/small_padding"
+            android:clickable="true" />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            style="@style/ListitemActionButtonStyle_2"
+            android:id="@+id/edit_btn"
+            android:background="@drawable/personal_address_list_edit_drawable"
+            android:layout_toLeftOf="@id/delete_btn"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/small_padding" />
+    </RelativeLayout>
+</layout>

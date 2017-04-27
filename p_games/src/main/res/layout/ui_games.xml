@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:bp="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="userInfo"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.AccountInfo" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg">
+
+        <include
+            android:id="@+id/header_bar"
+            layout="@layout/comm_header"
+            bind:userInfo="@{userInfo}" />
+
+        <com.bemetoy.bp.uikit.widget.BpTabStrip
+            android:id="@+id/games_list_bts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_bar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/larger_padding"
+            android:layout_marginRight="@dimen/larger_padding"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:weightSum="3">
+
+            <com.bemetoy.bp.uikit.widget.BpTabStripImageViewItem
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                bp:bgChecked="@drawable/tab_check_bg"
+                bp:bgUnchecked="@drawable/tab_uncheck_bg"
+                bp:drawableUnchecked="@drawable/game_time_txt"
+                bp:drawableChecked="@drawable/game_time_txt_check"
+                android:padding="@dimen/tab_content_padding"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTabStripImageViewItem
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                bp:bgChecked="@drawable/tab_check_bg"
+                bp:bgUnchecked="@drawable/tab_uncheck_bg"
+                bp:drawableUnchecked="@drawable/game_address_txt"
+                bp:drawableChecked="@drawable/game_address_txt_check"
+                android:padding="@dimen/tab_content_padding"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTabStripImageViewItem
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                bp:bgChecked="@drawable/tab_check_bg"
+                bp:bgUnchecked="@drawable/tab_uncheck_bg"
+                bp:drawableUnchecked="@drawable/game_personal_txt"
+                bp:drawableChecked="@drawable/game_personal_txt_check"
+                android:padding="@dimen/tab_content_padding"
+                />
+        </com.bemetoy.bp.uikit.widget.BpTabStrip>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/games_notice_tv_ll"
+            android:layout_alignLeft="@+id/games_list_bts"
+            android:layout_alignRight="@+id/games_list_bts"
+            android:layout_below="@+id/games_list_bts"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            >
+            <com.bemetoy.bp.uikit.widget.MarqueeTextView
+                android:id="@+id/games_notice_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/game_notice_bg"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <com.bemetoy.bp.uikit.widget.BpViewPager
+            android:id="@+id/game_list_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignLeft="@+id/games_list_bts"
+            android:layout_alignRight="@+id/games_list_bts"
+            android:layout_below="@+id/games_notice_tv_ll"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="1dp" />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/city_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/game_list_vp"
+            android:layout_marginTop="@dimen/normal_padding"
+            android:background="@drawable/game_location_bg"
+            android:drawableRight="@drawable/selectable_adorn"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:paddingTop="@dimen/smallest_padding"
+            android:paddingBottom="@dimen/smallest_padding"
+            android:paddingLeft="@dimen/normal_padding"
+            android:paddingRight="@dimen/normal_padding"
+            android:textSize="@dimen/action_btn_textSize"
+            bind:text="深圳" />
+
+    </RelativeLayout>
+
+</layout>

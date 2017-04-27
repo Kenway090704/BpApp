@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.bemetoy.bp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+
+    <application
+        android:name=".app.BpApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="${appName}"
+        android:supportsRtl="false"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="${baiduKey}" />
+
+        <meta-data
+            android:name="BUGLY_APPID"
+            android:value="${bugly_id}" />
+
+        <meta-data
+            android:name="BUGLY_ENABLE_DEBUG"
+            android:value="${bugly_debug}" />
+
+        <meta-data android:name="BUGLY_APP_CHANNEL"
+            android:value="${channel_name}" />
+
+
+        <activity
+            android:name=".ui.IndexUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.LauncherUI"
+            android:configChanges="screenSize|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ui.auth.RegisterLocationUI"
+            android:configChanges="screenSize|orientation"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ui.auth.RegisterDetailUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.HomePageUI"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".ui.ActivationCarUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.ActivationScoreUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.auth.AuthUINew"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.Dialog"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.auth.RegisterUINEW"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.Dialog"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.ChangePasswordUI"
+            android:configChanges="screenSize|orientation"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity android:name=".test.ui.TestCenterUI" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"></service>
+
+        <service android:name="com.bemetoy.stub.service.DownloadService" android:exported="false" />
+
+        <receiver android:name="com.bemetoy.stub.app.NetworkBroadCastReceiver" >
+            <intent-filter android:priority="1000">　　　　　　
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

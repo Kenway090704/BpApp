@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.bemetoy.bp.plugin.games.model.GameLogic"/>
+        <variable
+            name="game"
+            type="com.bemetoy.stub.model.GameInfo" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/game_detail_bg">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/game_bg_vw"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/game_image_fragment_height" />
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            style="@style/BackBtnStyle"
+            android:layout_centerVertical="false"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/game_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_toLeftOf="@+id/join_btn"
+            android:layout_alignParentLeft="true"
+            android:layout_above="@+id/game_hot_rg"
+            android:text='@{game.title}'
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="深圳选拔赛"
+            />
+
+        <RatingBar
+            android:id="@+id/game_hot_rg"
+            style="@style/GameRatingBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="13dp"
+            android:layout_alignLeft="@+id/game_name_tv"
+            android:layout_alignBottom="@+id/game_bg_vw"
+            android:layout_marginBottom="@dimen/smallest_padding"
+            android:numStars="5"
+            android:rating="0.0"
+            android:stepSize="0.5" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@+id/game_hot_rg"
+            android:layout_marginBottom="@dimen/smallest_padding"
+           >
+
+            <RadioButton
+                android:id="@+id/game_image_1_rb"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:button="@null"
+                android:checked="true"
+                android:background="@drawable/game_detail_image_selector"
+                android:enabled="false"
+                />
+
+            <RadioButton
+                android:id="@+id/game_image_2_rb"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:button="@null"
+                android:layout_marginLeft="@dimen/smallest_padding"
+                android:background="@drawable/game_detail_image_selector"
+                android:enabled="false"
+                />
+        </RadioGroup>
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/join_btn"
+            style="@style/DefaultButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/game_bg_vw"
+            android:layout_marginRight="@dimen/normal_padding"
+            android:background="@drawable/game_game_detail_join"
+            android:layout_marginBottom="@dimen/smallest_padding"
+            android:enabled="false" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/game_detail_sv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/game_bg_vw">
+
+            <RelativeLayout
+                android:id="@+id/game_detail_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/game_detail_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false"
+                    >
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/address_detail_label_tv"
+                            style="@style/GameDetailLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/large_padding"
+                            android:layout_marginTop="8dp"
+                            android:ellipsize="marquee"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:maxWidth="120dp"
+                            android:text="@string/address_detail" />
+
+                        <com.bemetoy.bp.uikit.widget.MarqueeTextView
+                            android:id="@+id/address_detail_tv"
+                            style="@style/GameDetailValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/address_detail_label_tv"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="12dp"
+                            android:layout_toRightOf="@+id/address_detail_label_tv"
+                            android:layout_toLeftOf="@+id/query_detail_btn"
+                            android:gravity="left"
+                            android:text='@{game.gameAddress.detail}' />
+
+                        <com.bemetoy.bp.uikit.widget.BpButton
+                            android:id="@+id/query_detail_btn"
+                            style="@style/DefaultButtonStyle"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/address_detail_tv"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/game_game_detail_query_address_drawable"
+                            android:gravity="center"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:enabled="false" />
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/game_type_label_tv"
+                            style="@style/GameDetailLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/address_detail_label_tv"
+                            android:layout_below="@+id/address_detail_label_tv"
+                            android:layout_marginTop="1dp"
+                            android:text="@string/game_type" />
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/game_type_tv"
+                            style="@style/GameDetailValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/game_type_label_tv"
+                            android:layout_marginLeft="@dimen/smaller_padding"
+                            android:layout_toRightOf="@+id/game_type_label_tv"
+                            android:text='@{GameLogic.getGameType(game.type)}' />
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/game_time_label_tv"
+                            style="@style/GameDetailLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/game_type_label_tv"
+                            android:layout_below="@+id/game_type_label_tv"
+                            android:layout_marginTop="1dp"
+                            android:text="@string/game_time" />
+
+                        <com.bemetoy.bp.uikit.widget.MarqueeTextView
+                            android:id="@+id/game_time_tv"
+                            style="@style/GameDetailValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/game_time_label_tv"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toRightOf="@+id/game_time_label_tv"
+                            android:text='@{game.getDisplayDate()}' />
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/player_count_label_tv"
+                            style="@style/GameDetailLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/game_time_label_tv"
+                            android:layout_below="@+id/game_time_label_tv"
+                            android:layout_marginTop="1dp"
+                            android:text="@string/player_count" />
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/player_count_tv"
+                            style="@style/GameDetailValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/player_count_label_tv"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toRightOf="@+id/player_count_label_tv"
+                            android:text='@{game.participants + @string/person}' />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/small_padding"
+                        >
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/game_address_label_tv"
+                            style="@style/GameDetailLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginRight="12dp"
+                            android:text="@string/game_address" />
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/game_address_tv"
+                            style="@style/GameDetailValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/game_address_label_tv"
+                            android:layout_toRightOf="@+id/game_address_label_tv"
+                            android:text='@{game.gameAddress.name}' />
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/game_distance_label_tv"
+                            style="@style/GameDetailLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/game_address_label_tv"
+                            android:layout_below="@+id/game_address_label_tv"
+                            android:layout_marginTop="1dp"
+                            android:text="@string/distance" />
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/game_distance_tv"
+                            style="@style/GameDetailValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/game_distance_label_tv"
+                            android:layout_alignLeft="@+id/game_address_tv"
+                            android:layout_toRightOf="@+id/game_distance_label_tv"
+                            />
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/address_phone_label_tv"
+                            style="@style/GameDetailLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/game_distance_label_tv"
+                            android:layout_below="@+id/game_distance_label_tv"
+                            android:layout_marginTop="1dp"
+                            android:ellipsize="marquee"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:text="@string/address_phone" />
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/address_phone_tv"
+                            style="@style/GameDetailValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/address_phone_label_tv"
+                            android:layout_alignLeft="@+id/game_address_tv"
+                            android:layout_toRightOf="@+id/address_phone_label_tv"
+                            android:text='@{game.coachMobile}' />
+
+                        <com.bemetoy.bp.uikit.widget.BpTextView
+                            android:id="@+id/referee_label_tv"
+                            style="@style/GameDetailLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/address_phone_label_tv"
+                            android:layout_below="@+id/address_phone_label_tv"
+                            android:layout_marginTop="1dp"
+                            android:text="@string/referee" />
+
+                        <TextView
+                            android:id="@+id/referee_tv"
+                            style="@style/GameDetailValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/referee_label_tv"
+                            android:layout_alignLeft="@+id/game_address_tv"
+                            android:layout_toRightOf="@+id/referee_label_tv"
+                            android:text="@{game.coachName}" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/remark_label_tv"
+                    style="@style/GameDetailLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/large_padding"
+                    android:layout_below="@+id/game_detail_ll"
+                    android:layout_marginTop="1dp"
+                    android:text="@string/remark" />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/remark_tv"
+                    style="@style/GameDetailValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/remark_label_tv"
+                    android:layout_marginRight="@dimen/normal_padding"
+                    android:gravity="left"
+                    android:maxLines="1000000"
+                    android:singleLine="false"
+                    android:layout_below="@+id/remark_label_tv"
+                    android:text='@{game.detail.trim()}' />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/list_title_tv"
+                    style="@style/GameDetailLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/remark_label_tv"
+                    android:layout_below="@+id/remark_tv"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/game_result"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/game_result_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/list_title_tv"
+                    android:layout_marginRight="@dimen/normal_padding"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/list_title_tv"
+                    android:visibility="gone"
+                    android:gravity="center_vertical"
+                    android:weightSum="7.5"
+                    >
+
+                    <com.bemetoy.bp.uikit.widget.BpTextView
+                        android:id="@+id/ranking_im"
+                        android:layout_width="75dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="名次"
+                        tools:text="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:textColor="@color/dark_blue"
+                        />
+
+                    <com.bemetoy.bp.uikit.widget.BpTextView
+                        android:id="@+id/time_tv"
+                        android:layout_width="65dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="总时间"
+                        android:gravity="center"
+                        tools:text="09'24"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:textColor="@color/dark_blue"
+                        />
+
+                    <com.bemetoy.bp.uikit.widget.BpTextView
+                        android:id="@+id/username_tv"
+                        android:layout_weight="1.5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="昵称"
+                        android:gravity="center"
+                        tools:text="玩家昵称"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:textColor="@color/dark_blue"
+                        />
+
+                    <com.bemetoy.bp.uikit.widget.BpTextView
+                        android:id="@+id/car_type_tv"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="赛车名"
+                        android:gravity="center"
+                        tools:text="飞龙系列赛车"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="@color/dark_blue"
+                        />
+
+                    <com.bemetoy.bp.uikit.widget.BpTextView
+                        android:id="@+id/single_circle_time_tv"
+                        android:layout_weight="1.5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="最快单圈时间"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        tools:text="单圈2'00"
+                        android:textColor="@color/dark_blue"
+                        />
+
+                    <com.bemetoy.bp.uikit.widget.BpTextView
+                        android:id="@+id/single_circle_speed_tv"
+                        android:layout_weight="1.5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="最快单圈速度"
+                        android:gravity="center"
+                        tools:text=""
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:textColor="@color/dark_blue"
+                        />
+
+                    <com.bemetoy.bp.uikit.widget.BpTextView
+                        android:id="@+id/circle_count_tv"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="圈数"
+                        android:gravity="center"
+                        tools:text="总圈数"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="@color/dark_blue"
+                        />
+
+                </LinearLayout>
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/game_result_title"
+                    android:layout_alignLeft="@+id/game_result_title"
+                    android:layout_marginRight="@dimen/normal_padding"
+                    android:background="@color/dark_blue"
+                    android:visibility="gone"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.recyclerview.LoadMoreRecyclerView
+                    android:id="@+id/game_result_vr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/list_title_tv"
+                    android:layout_below="@+id/line"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="@dimen/normal_padding"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </RelativeLayout>
+</layout>
+

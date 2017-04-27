@@ -1,0 +1,1 @@
+include ':app', ':lib_language', ':lib_sdk', ':lib_network', ':lib_persistence', ':lib_uikit', ':lib_stub', ':lib_protocols', ':p_personalcenter', ':p_ranking', ':p_games', ':p_mall', ':p_friends', ':p_taskscenter', ':p_notice', ':p_operations', ':p_car'

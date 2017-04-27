@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:paddingTop="@dimen/large_padding"
+       android:paddingLeft="@dimen/dialog_normal_padding"
+       android:paddingRight="@dimen/dialog_normal_padding"
+       android:paddingBottom="@dimen/small_padding"
+       android:background="@drawable/dialog_bg"
+       >
+
+      <com.bemetoy.bp.uikit.widget.BpTextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_horizontal"
+          style="@style/DefaultDialogTitleStyle"
+          android:text="@string/network_disconnect"
+          />
+
+      <com.bemetoy.bp.uikit.widget.BpTextView
+          android:layout_width="wrap_content"
+          android:layout_height="135dp"
+          android:text="@string/network_disconnect_content"
+          android:layout_marginTop="@dimen/smaller_padding"
+          android:layout_gravity="center_horizontal"
+          style="@style/DefaultDialogContentStyle"
+          />
+
+      <com.bemetoy.bp.uikit.widget.BpButton
+          android:id="@+id/confirm_btn"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/smaller_padding"
+          android:layout_gravity="center_horizontal"
+          android:background="@drawable/common_queding_drawable"
+          />
+   </LinearLayout>
+</layout>

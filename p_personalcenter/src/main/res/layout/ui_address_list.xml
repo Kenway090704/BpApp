@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="userInfo"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.AccountInfo"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg">
+
+        <RelativeLayout
+            android:id="@+id/title_bar_lt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/PageTitleBarStyle"
+            >
+
+            <ImageButton
+                android:id="@+id/back_btn"
+                style="@style/BackBtnStyle"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/page_title_margin_top"
+                android:layout_centerHorizontal="true"
+                style="@style/DefaultTextViewTitleStyle"
+                android:text="@string/personal_center_my_address_list"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/action_btn"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/next_btn_margin_right"
+                android:layout_marginTop="@dimen/action_btn_margin_top"
+                style="@style/DefaultActionButtonStyle_5"
+                android:background="@drawable/personal_address_add_new_drawable"
+                />
+        </RelativeLayout>
+
+        <com.bemetoy.bp.uikit.widget.recyclerview.VRecyclerView
+            android:id="@+id/data_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title_bar_lt"
+            android:layout_marginTop="@dimen/min_padding"
+            android:layout_marginLeft="@dimen/back_btn_margin_left"
+            android:layout_marginRight="@dimen/next_btn_margin_right"/>
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/personal_center_no_address"
+            android:textSize="@dimen/large_text_size"
+            android:textColor="@color/white"
+            />
+
+    </RelativeLayout>
+
+</layout>

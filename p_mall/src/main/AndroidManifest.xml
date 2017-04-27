@@ -1,0 +1,28 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bemetoy.bp.plugin.mall">
+
+    <application
+        android:allowBackup="true">
+
+        <activity android:name=".ui.MallUI"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".ui.PartDetailUI"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.Dialog"/>
+
+        <activity android:name=".ui.MyOrderUI"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".ui.ExchangeResultUI"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"/>
+    </application>
+
+</manifest>

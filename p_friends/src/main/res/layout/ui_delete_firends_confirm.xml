@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="@dimen/smaller_padding"
+        >
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/large_padding"
+            style="@style/DefaultDialogTitleStyle"
+            android:text="@string/friends_confirm_delete"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/error_msg_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dialog_content_height"
+            android:layout_below="@+id/title_tv"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:layout_centerHorizontal="true"
+            style="@style/DefaultDialogContentStyle"
+            android:text="@string/friends_name_confirm"
+            />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/error_msg_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            >
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/confirm_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/common_queding_blue_drawable"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/cancel_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/common_cancel_yellow_drawable"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
+
+
+

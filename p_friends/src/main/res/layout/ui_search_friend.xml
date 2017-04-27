@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:bp="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/PageTitleBarStyle"
+            android:id="@+id/title_bar_rl"
+            >
+            <ImageButton
+                android:id="@+id/back_btn"
+                style="@style/BackBtnStyle"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/search_friend_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/page_title_margin_top"
+                android:text="@string/add_friend_title"
+                style="@style/DefaultTextViewTitleStyle"
+                />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/username_ed"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@+id/title_bar_rl"
+            android:layout_marginTop="@dimen/min_padding"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            style="@style/DefaultEditTextStyle"
+            android:background="@drawable/nickname_edit_bg"
+            android:hint="@string/friend_search_hint"
+            />
+
+        <LinearLayout
+            android:id="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username_ed"
+            android:layout_alignLeft="@+id/username_ed"
+            android:layout_alignRight="@+id/username_ed"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            android:background="@drawable/friends_search_bg"
+            >
+
+            <ImageView
+                android:id="@+id/search_icon_im"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/search_icon" />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/username_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
+
+        <com.bemetoy.bp.uikit.widget.recyclerview.VRecyclerView
+            android:id="@+id/result_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/search_layout"
+            android:layout_alignRight="@+id/search_layout"
+            android:layout_below="@+id/username_ed"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
+    </RelativeLayout>
+
+</layout>
+

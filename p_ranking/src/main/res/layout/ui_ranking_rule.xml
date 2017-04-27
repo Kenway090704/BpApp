@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="ruleTxt"
+            type="String"/>
+    </data>
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        android:paddingTop="@dimen/large_padding"
+        android:paddingBottom="@dimen/large_padding"
+        >
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/rule_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/ranking_reward_rule"
+            style="@style/DefaultDialogTitleStyle"
+            />
+
+        <Button
+            android:id="@+id/close_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dialog_normal_padding"
+            android:background="@drawable/btn_close"
+            />
+
+        <ScrollView
+            android:id="@+id/content_sv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/normal_padding"
+            android:layout_below="@+id/rule_title_tv"
+            >
+            <LinearLayout
+                android:id="@+id/content_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingRight="@dimen/larger_padding"
+                android:paddingLeft="@dimen/larger_padding"
+                android:orientation="vertical"
+                ></LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</layout>
+

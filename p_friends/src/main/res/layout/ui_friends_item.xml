@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="accInfo"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.AccountInfo"/>
+
+        <variable
+            name="baseUrl"
+            type="String"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/friend_list_item_bg"
+        >
+        <LinearLayout
+            android:id="@+id/userInfo_ll"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:paddingTop="@dimen/smallest_padding"
+            android:layout_toLeftOf="@+id/selectable_adorn"
+            android:layout_marginRight="@dimen/smaller_padding"
+            android:weightSum="10"
+            android:gravity="center_vertical">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/user_avatar_im"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                bind:actualImageScaleType="fitXY"
+                bind:imageUrl='@{ baseUrl + "/" +accInfo.icon}'
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/username_tv"
+                android:layout_width="0dp"
+                android:layout_weight="2.8"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text='@{accInfo.getName()}'
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:ellipsize="end"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/level_tv"
+                android:layout_width="0dp"
+                android:layout_weight="2.2"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="@{accInfo.levelName}"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:ellipsize="end"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/car_name_tv"
+                android:layout_width="0dp"
+                android:layout_weight="2.5"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text='@{accInfo.getCarName()}'
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:ellipsize="end"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:layout_weight="2.5"
+                android:id="@+id/location_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text='@{accInfo.getProvince() + "|" + accInfo.getCity()}'
+                android:textColor="@color/white"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:ellipsize="end"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/selectable_adorn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/selectable_adorn"
+            android:layout_marginRight="@dimen/smaller_padding"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+
+</layout>
+

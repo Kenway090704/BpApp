@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.bemetoy.bp.protocols.ProtocolConstants"/>
+        <import type="com.bemetoy.bp.sdk.utils.Util"/>
+        <import type="com.bemetoy.bp.autogen.protocol.Racecar.GetGameResultResponse.Result"/>
+
+        <variable
+            name="position"
+            type="int"/>
+
+        <variable
+            name="result"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.GetGameResultResponse.Result"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:gravity="center_vertical"
+        android:weightSum="7.5"
+        android:background='@{position % 2 != 0 ? @color/game_result_item_bg : @color/translucent}'
+        >
+
+        <RelativeLayout
+            android:layout_width="75dp"
+            android:layout_height="wrap_content">
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/ranking_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                tools:text="1"
+                android:maxLines="1"
+                android:text='@{String.valueOf(position + 1)}'
+                android:ellipsize="middle"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/normal_text_size"
+                android:visibility='@{result.flag == Result.Flag.Flag_OK ? View.VISIBLE : View.INVISIBLE}'
+                />
+
+            <ImageView
+                android:id="@+id/ranking_im"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility='@{result.flag != Result.Flag.Flag_OK ? View.VISIBLE : View.INVISIBLE}'
+                android:src='@{result.flag == Result.Flag.Flag_MarkError ? @drawable/invalid_result : @drawable/exception_result}'
+                />
+
+        </RelativeLayout>
+
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/time_tv"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@{Util.millSecToTime(result.totalTime)}"
+            android:gravity="center"
+            tools:text="09'24"
+            android:maxLines="1"
+            android:ellipsize="middle"
+            android:textColor="@color/dark_blue"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/username_tv"
+            android:layout_weight="1.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@{result.userName}"
+            android:gravity="center"
+            tools:text="玩家: 飞鹰一号"
+            android:maxLines="1"
+            android:ellipsize="middle"
+            android:textColor="@color/dark_blue"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/car_type_tv"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@{result.carName}"
+            android:gravity="center"
+            tools:text="飞龙系列赛车"
+            android:maxLines="1"
+            android:ellipsize="middle"
+            android:textColor="@color/dark_blue"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/single_circle_time_tv"
+            android:layout_weight="1.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@{Util.millSecToSecond(result.lapTime)}"
+            tools:text="单圈2'00"
+            android:gravity="center"
+            android:textColor="@color/dark_blue"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/single_circle_speed_tv"
+            android:layout_weight="1.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text='@{Util.unitFormat(result.speed) + "KM/h"}'
+            android:gravity="center"
+            tools:text="单圈最快250km/h"
+            android:maxLines="1"
+            android:ellipsize="middle"
+            android:textColor="@color/dark_blue"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/circle_count_tv"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(result.lapCount)}"
+            android:gravity="center"
+            tools:text="20圈"
+            android:maxLines="1"
+            android:ellipsize="middle"
+            android:textColor="@color/dark_blue"
+            />
+    </LinearLayout>
+</layout>
+
+

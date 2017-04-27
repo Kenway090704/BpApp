@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bemetoy.bp.plugin.car">
+
+    <application>
+        <activity
+            android:theme="@style/AppTheme.Dialog"
+            android:name=".ui.UnityPlayerActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:launchMode="singleTask"
+            android:process=":unity"
+            android:screenOrientation="landscape" >
+            <meta-data
+                android:name="unityplayer.UnityActivity"
+                android:value="true" />
+        </activity>
+        <activity
+            android:theme="@style/AppTheme.Dialog"
+            android:name=".ui.UnityPlayerNativeActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" >
+        </activity>
+    </application>
+</manifest>

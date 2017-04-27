@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bp="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="accountInfo"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.AccountInfo"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/register_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/PageTitleBarStyle">
+
+            <ImageButton
+                android:id="@+id/back_btn"
+                style="@style/BackBtnStyle" />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personal_center_my_game_record"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/page_title_margin_top"
+                style="@style/DefaultTextViewTitleStyle"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpImageTextView
+                android:id="@+id/integral_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/score_image_size"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/smallest_padding"
+                android:layout_marginRight="@dimen/next_btn_margin_right"
+                bp:imageValue="@{accountInfo.score}"
+                />
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/integral_tips_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/integral_tv"
+                android:layout_marginLeft="@dimen/min_padding"
+                android:layout_marginRight="@dimen/smallest_padding"
+                android:text="@string/personal_center_integral"
+                android:layout_alignBottom="@+id/integral_tv"
+                android:textSize="@dimen/score_txt_size"
+                android:textColor="@color/nick_name_color" />
+
+            <ImageView
+                android:layout_width="@dimen/score_icon_size"
+                android:layout_height="@dimen/score_icon_size"
+                android:layout_marginTop="@dimen/smallest_padding"
+                android:layout_toLeftOf="@id/integral_tips_tv"
+                android:layout_alignBottom="@+id/integral_tv"
+                android:src="@drawable/user_score"/>
+        </RelativeLayout>
+
+        <com.bemetoy.bp.uikit.widget.BpTabStrip
+            android:id="@+id/games_list_bts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/min_padding"
+            android:layout_marginLeft="@dimen/back_btn_margin_left"
+            android:layout_marginRight="@dimen/next_btn_margin_right"
+            android:layout_marginBottom="@dimen/min_padding"
+            android:gravity="center"
+            android:weightSum="3">
+
+            <com.bemetoy.bp.uikit.widget.BpTabStripImageViewItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                bp:bgChecked="@drawable/tab_check_bg"
+                bp:bgUnchecked="@drawable/tab_uncheck_bg"
+                bp:drawableUnchecked="@drawable/personal_game_week_txt"
+                bp:drawableChecked="@drawable/personal_game_week_txt_check"
+                android:padding="@dimen/tab_content_padding"
+                android:layout_weight="1"
+               />
+
+            <com.bemetoy.bp.uikit.widget.BpTabStripImageViewItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                bp:bgChecked="@drawable/tab_check_bg"
+                bp:bgUnchecked="@drawable/tab_uncheck_bg"
+                bp:drawableUnchecked="@drawable/personal_game_month_txt"
+                bp:drawableChecked="@drawable/personal_game_month_txt_check"
+                android:padding="@dimen/tab_content_padding"
+                android:layout_weight="1" />
+
+            <com.bemetoy.bp.uikit.widget.BpTabStripImageViewItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                bp:bgChecked="@drawable/tab_check_bg"
+                bp:bgUnchecked="@drawable/tab_uncheck_bg"
+                bp:drawableUnchecked="@drawable/personal_game_pk_txt"
+                bp:drawableChecked="@drawable/personal_game_pk_txt_check"
+                android:padding="@dimen/tab_content_padding"
+                android:layout_weight="1" />
+        </com.bemetoy.bp.uikit.widget.BpTabStrip>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/list_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/back_btn_margin_left"
+            android:layout_marginRight="@dimen/next_btn_margin_right" />
+    </LinearLayout>
+
+</layout>

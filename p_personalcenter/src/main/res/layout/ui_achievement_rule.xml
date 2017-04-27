@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/register_bg"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/PageTitleBarStyle"
+        android:id="@+id/title_bar_rl"
+        >
+        <ImageButton
+            android:id="@+id/back_btn"
+            style="@style/BackBtnStyle"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/rule_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/page_title_margin_top"
+            style="@style/DefaultTextViewTitleStyle"
+            android:text="成就规则"
+            />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_bar_rl"
+        android:layout_centerHorizontal="true"
+        >
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/rule_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/achieve_rule"
+            android:textSize="@dimen/normal_text_size"
+            />
+    </ScrollView>
+
+
+</RelativeLayout>

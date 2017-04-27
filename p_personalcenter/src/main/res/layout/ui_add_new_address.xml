@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.EditAddressUI">
+
+    <data>
+        <variable name="address" type="com.bemetoy.bp.plugin.personalcenter.model.AddressInfo"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/title_bar_lt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/back_btn"
+                style="@style/BackBtnStyle"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/page_title_margin_top"
+                android:layout_centerHorizontal="true"
+                style="@style/DefaultTextViewTitleStyle"
+                android:text="@string/personal_center_add_new_address_ui_title"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/action_btn"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/next_btn_margin_right"
+                android:layout_marginTop="@dimen/action_btn_margin_top"
+                style="@style/DefaultActionButtonStyle_2"
+                android:background="@drawable/personal_address_edit_save_press"
+                />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/smaller_padding"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/normal_padding"
+                android:layout_marginRight="@dimen/normal_padding"
+                android:paddingBottom="@dimen/larger_padding">
+
+                <include
+                    android:id="@+id/comm_address_edit_container"
+                    layout="@layout/address_edit_comm_layout"
+                    bind:address="@{address}"/>
+
+                <RelativeLayout
+                    style="@style/PersonalCenter.Row.EditAddress"
+                    android:layout_marginTop="@dimen/large_padding">
+                    <com.bemetoy.bp.uikit.widget.BpTextView
+                        android:id="@+id/consignee_tv"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/larger_padding"
+                        android:textColor="@color/white"
+                        android:text="@string/personal_center_set_as_default_address"/>
+
+                    <CheckBox
+                        android:id="@+id/consignee_et"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/default_address_selector"
+                        android:button="@null"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/largest_padding"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

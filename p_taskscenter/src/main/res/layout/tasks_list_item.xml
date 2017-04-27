@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="task" type="com.bemetoy.bp.autogen.protocol.Racecar.Task"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/larger_row_height"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="@dimen/larger_padding"
+            android:background="@drawable/task_undone_bg"
+            android:gravity="left|center_vertical"
+            android:text="@{task.name}"
+            android:paddingLeft="24dp"
+            tools:text="旋风冲锋1星"/>
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/action_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/small_padding"
+            />
+    </RelativeLayout>
+
+</layout>

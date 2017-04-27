@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="com.bemetoy.bp.sdk.utils.Util"/>
+        <import type="android.view.View"/>
+
+        <variable name="game" type="com.bemetoy.bp.autogen.protocol.Racecar.Game"/>
+    </data>
+    <RelativeLayout
+        android:id="@+id/game_rl"
+        style="@style/HomePageGameStyle"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="27dp"
+        android:paddingLeft="-1dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/game_iv"
+            style="@style/HomePageGameImageViewStyle"/>
+
+        <LinearLayout
+            android:id="@+id/name_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/game_iv"
+            android:layout_above="@+id/center_view">
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/game_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@{game.getTitle()}"
+                style="@style/HomePageGameStyleTitle"/>
+
+            <ImageView
+                android:id="@+id/game_hot_im"
+                android:visibility='@{ game.id != -1 &amp;&amp; game.join >= game.total ? View.VISIBLE : View.INVISIBLE}'
+                style="@style/HomePageGameHotStyle"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/game_name_tv"/>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/center_view"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/game_iv"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/game_detail_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignLeft="@+id/name_ll"
+            android:layout_below="@+id/center_view"
+            android:text='@{game.id == -1 ? "" : Util.getMonthAndDayDuration(game.begin, game.end) + "  |  " + @string/joined_people + game.join + "  |  " + game.place.name}'
+            style="@style/HomePageGameStyleContent"/>
+
+    </RelativeLayout>
+
+</layout>

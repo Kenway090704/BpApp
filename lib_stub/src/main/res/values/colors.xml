@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="translucent">#0000</color>
+    <color name="window_dialog_bg">#80000000</color>
+    <color name="game_result_item_bg">#10000000</color>
+
+    <color name="dark_blue">#0E4A8F</color>
+    <color name="nick_name_color">#0C498E</color>
+    <!-- For test center -->
+    <color name="testCasePress">#66444455</color>
+    <color name="testCaseNormal">#664F4F66</color>
+
+    <!--For register-->
+    <color name="golden">#FFE400</color>
+    <color name="light_blue">#85D0FF</color>
+    <color name="light_blue_alpha">#85D0FF</color>
+    <color name="radar_bg">#442B7FB8</color>
+    <color name="orange">#DE5401</color>
+
+    <!-- common -->
+    <color name="yellow">#FFFA1B</color>
+    <color name="text_hint_color">#8c8c8c</color>
+
+    <!--task-->
+    <color name="task_detail_bg">#99000000</color>
+
+</resources>

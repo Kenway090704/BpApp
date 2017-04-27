@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg"
+        >
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            style="@style/BackBtnStyle"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            style="@style/DefaultTextViewTitleStyle"
+            android:text="@string/my_order"
+            />
+
+        <com.bemetoy.bp.uikit.widget.recyclerview.LoadMoreRecyclerView
+            android:id="@+id/my_orders_vr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/back_btn"
+            android:layout_marginLeft="@dimen/back_btn_margin_left"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:layout_marginRight="@dimen/next_btn_margin_right"
+            android:layout_marginBottom="@dimen/min_padding"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/place_holder_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large_text_size"
+            />
+
+    </RelativeLayout>
+
+</layout>
+

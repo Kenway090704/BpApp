@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bp="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="accountInfo"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.AccountInfo"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg">
+
+        <RelativeLayout
+            android:id="@+id/title_bar_lt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/PageTitleBarStyle"
+            >
+
+            <ImageButton
+                android:id="@+id/back_btn"
+                style="@style/BackBtnStyle"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/page_title_margin_top"
+                android:layout_centerHorizontal="true"
+                style="@style/DefaultTextViewTitleStyle"
+                android:text="@string/ranking_title"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/action_btn"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/next_btn_margin_right"
+                android:layout_marginTop="@dimen/action_btn_margin_top"
+                style="@style/DefaultActionButtonStyle_2"
+                android:background="@drawable/personal_achivement_rule_drawable"
+                />
+        </RelativeLayout>
+
+        <CheckBox
+            android:id="@+id/my_ranking_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/back_btn_margin_left"
+            android:layout_alignTop="@+id/ranking_list_vp"
+            android:background="@drawable/ranking_my_ranking_drawable"
+            android:button="@null" />
+
+        <com.bemetoy.bp.uikit.widget.BpTabStrip
+            android:id="@+id/ranking_list_bts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_bar_lt"
+            android:layout_marginTop="@dimen/min_padding"
+            android:layout_marginRight="@dimen/next_btn_margin_right"
+            android:layout_toRightOf="@+id/my_ranking_tv"
+            android:layout_marginLeft="@dimen/smallest_padding"
+            android:weightSum="4">
+
+            <com.bemetoy.bp.plugin.ranking.ui.RankingTitleTextView
+                style="@style/RankingTitleStyle"
+                android:text= "@string/ranking_state"/>
+
+            <com.bemetoy.bp.plugin.ranking.ui.RankingTitleTextView
+                style="@style/RankingTitleStyle"
+                android:text="@{@string/ranking_province(accountInfo.province)}"/>
+
+            <com.bemetoy.bp.plugin.ranking.ui.RankingTitleTextView
+                style="@style/RankingTitleStyle"
+                android:text="@{@string/ranking_city(accountInfo.city)}"/>
+
+            <com.bemetoy.bp.plugin.ranking.ui.RankingTitleTextView
+                style="@style/RankingTitleStyle"
+                android:text="@{@string/ranking_week(accountInfo.city)}"/>
+            </com.bemetoy.bp.uikit.widget.BpTabStrip>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/ranking_list_vp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ranking_list_bts"
+                android:layout_alignLeft="@+id/ranking_list_bts"
+                android:layout_alignRight="@+id/ranking_list_bts"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="8dp"
+                />
+    </RelativeLayout>
+
+</layout>
+

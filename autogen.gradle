@@ -1,0 +1,76 @@
+
+doAutoGen()
+
+//task genProtoBuffer(type : Exec) {
+//    File file = file("$buildDir/generated/source/autogen");
+//    if (file.exists()) {
+//        file.delete()
+//    }
+//    file.mkdirs()
+//    def java_out = "--java_out=${project.buildDir}/build/generated/source/autogen";
+//    def src_in = "--proto_path=${project.rootDir.getAbsolutePath()}/${project.name}/autogen";
+//    def f = "--proto_path=${project.rootDir.getAbsolutePath()}/${project.name}/autogen/Racecar.proto";
+//    commandLine 'protoc',java_out, src_in, f
+////    commandLine 'protoc','--java_out=./build/generated/source/autogen','./autogen/Racecar.proto'
+//}
+
+def doAutoGen() {
+    def autoGenPerPrj = tasks.create("autoGen_$name", AutoGenTask)
+    autoGenPerPrj.inputDir = file("../$name/autogen")
+    autoGenPerPrj.outputDir = file("$buildDir/generated/source/autogen")
+//    autoGenPerPrj.projectDir = file("../$name")
+
+    if (autoGenPerPrj.inputDir == null || !autoGenPerPrj.inputDir.exists()) {
+        println("project: $project do not exists autogen dir.");
+        return
+    }
+//    autoGenPerPrj.exec()
+    tasks.whenTaskAdded { task ->
+        if (task.name.startsWith('generate') && task.name.endsWith('Sources')) {
+            println("add task project : $project, name : $name.");
+//            genProtoBuffer.dependsOn autoGenPerPrj
+//            task.dependsOn genProtoBuffer
+//            autoGenPerPrj.dependsOn genProtoBuffer
+            task.dependsOn autoGenPerPrj
+        }
+    }
+}
+
+class AutoGenTask extends DefaultTask {
+
+    @InputDirectory
+    def File inputDir
+
+    @OutputDirectory
+    def File outputDir
+
+//    def File projectDir
+
+    @TaskAction
+    def exec() {
+        if (!inputDir.exists()) {
+            println "input dir do not exist, skipped it($name)."
+            return
+        }
+        println "execute autogen greendao " + outputDir.absolutePath
+//        if (!outputDir.exists()) {
+//            outputDir.mkdirs()
+//        }
+//        project.exec {
+//            commandLine = "protoc --java_out=./build/generated/source/autogen ./autogen/Racecar.proto"
+//        }
+        autogenGreenDao()
+    }
+
+    def autogenGreenDao() {
+        ant.java(jar: "${rootPath}/autogen/AutoGen.jar", fork: true) {
+            arg(value: inputDir.absolutePath)
+            arg(value: outputDir.absolutePath)
+            arg(value: "${rootPath}/autogen")
+        }
+    }
+
+    def getRootPath() {
+        return project.rootDir.getAbsolutePath()
+    }
+}

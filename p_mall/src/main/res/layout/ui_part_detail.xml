@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bp="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="part"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.GoodsListResponse.Item"/>
+
+        <variable
+            name="score"
+            type="int"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E609347D">
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/detail_info_label_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/part_title_margin_left"
+            android:layout_marginTop="@dimen/part_title_margin_left"
+            android:text="@string/part_detail"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/part_title_txt_size"
+            />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/part_detail_im"
+            android:layout_width="@dimen/part_detail_img_size"
+            android:layout_height="@dimen/part_detail_img_size"
+            android:layout_below="@+id/detail_info_label_tv"
+            android:layout_marginLeft="@dimen/part_title_margin_left"
+            android:layout_marginTop="8dp"
+            bp:actualImageScaleType="fitXY"
+            bp:placeholderImage="@drawable/part_item_placeholder"
+            bp:placeholderImageScaleType="fitXY"
+            bp:imageUrl="@{part.image}"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/part_name_tv"
+            android:layout_width="@dimen/part_detail_width"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/part_detail_im"
+            android:layout_alignLeft="@+id/part_detail_im"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:text="@{part.name}"
+            tools:text="超级马达"
+            android:textSize="@dimen/part_title_txt_size"
+            android:textColor="@color/white"
+            android:maxLines="1"
+            android:ellipsize="end"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/part_score_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/part_name_tv"
+            android:layout_alignLeft="@+id/part_name_tv"
+            android:layout_marginTop="4dp"
+            android:text='@{part.score + @string/score}'
+            bp:stroke_width="1dp"
+            bp:stroke_color="@color/black"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/part_title_txt_size"
+            android:textStyle="bold"
+            bp:font="hanyi"
+            tools:text="积分:200"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/current_score_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/part_score_tv"
+            android:layout_alignLeft="@+id/part_score_tv"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/golden"
+            android:textSize="@dimen/part_detail_txt_size"
+            android:text='@{@string/current_score + score + @string/score}'
+            tools:text="您的当前积分:8090积分"
+            />
+
+        <ScrollView
+            android:id="@+id/part_desc_sv"
+            android:layout_width="@dimen/part_detail_width"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/current_score_tv"
+            android:layout_marginRight="8dp"
+            android:layout_alignLeft="@+id/current_score_tv">
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/part_desc_tv"
+                android:layout_width="@dimen/part_detail_width"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/part_detail_txt_size"
+                android:textColor="@color/white"
+                android:text='@{part.describe}' />
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/radar_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_toRightOf="@+id/part_name_tv"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/part_detail_im">
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/buy_btn"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="8dp"
+                >
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/exchange_desc_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:text='@{part.detailText}'
+                    />
+            </ScrollView>
+
+            <com.bemetoy.bp.uikit.widget.RadarChartView
+                android:id="@+id/part_info_rc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/buy_btn"
+                android:layout_marginBottom="8dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="24dp"
+                bp:radar_radius="@dimen/part_radar_radius"
+                bp:property_text_stroke_width="2px"
+                bp:property_text_stroke_color="#003066"
+                bp:radar_value_stroke_color="@color/white"
+                bp:radar_value_stroke_width="3dp"
+                bp:radar_value_color="#63D0E4"
+                bp:radar_circle_stroke_width="3dp"
+                bp:radar_circle_color="#63D4E5"
+                bp:property_width="64dp"
+                bp:property_height="32dp"
+                bp:radar_bg_color="#882878B3"
+                bp:radar_property_scale="@dimen/part_property_scale"
+                android:visibility="invisible" />
+
+            <ImageButton
+                android:id="@+id/buy_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/mall_exchange_txt"
+                android:background="@drawable/mall_exchange_drawable" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/close_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/btn_close"
+            />
+    </RelativeLayout>
+
+</layout>

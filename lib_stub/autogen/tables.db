@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables
+    package="com.bemetoy.bp.autogen.table"
+    verison="3"
+    super="com.bemetoy.bp.persistence.db.base.DatabaseItem" >
+
+	<!--
+		* acceptable type for fields:
+		*
+		* boolean <==> INT(0/1) <br />
+		* int/Integer <==> INT <br/>
+		* long/Long <==> LONG <br/>
+		* short/Short <==> SHORT <br/>
+		* float/Float <==> FLOAT <br/>
+		* double/Double <==> DOUBLE <br/>
+		* String <==> TEXT <br/>
+		* byte[] <==> BLOB <br/>
+		* protobuf / referto <==> BLOB<br/>
+	-->
+
+	<!-- The rowId of this table will be use as primaryKey. -->
+
+	<table name="DownloadTaskInfo">
+		<field name="id" type="long" autoInc="true" primaryKey="true" comment="primaryKey of the table"/>
+		<field name="title" type="String"/>
+		<field name="summary" type="String"/>
+		<field name="size" type="int"/>
+		<field name="url" type="String" index="Index_DownloadTask_Url"/>
+		<field name="offset" type="int"/>
+		<field name="buildTime" type="long"/>
+		<field name="path" type="String"/>
+		<field name="md5" type="String"/>
+	</table>
+
+	<table name="TestUpgrade">
+		<field name="id" type="long" comment="primaryKey of the table"/>
+		<field name="title" type="String"/>
+		<field name="name" type="String"/>
+		<field name="path" type="String"/>
+	</table>
+
+	<table name="AccountInfo">
+    	<field name="id" type="long" autoInc="true" primaryKey="true" comment="primaryKey of the table"/>
+    	<field name="type" type="int"/>
+    	<field name="value" type="String"/>
+    </table>
+
+    <table name="Game">
+        <field name="id" type="long" primaryKey="true" comment="primaryKey of the table"/>
+        <field name="title" type="String"/>
+        <field name="imgUrl" type="String"/>
+        <field name="hot" type="boolean"/>
+        <field name="beginTime" type="long"/>
+        <field name="endTime" type="long"/>
+        <field name="total" type="int"/>
+        <field name="join" type="int"/>
+        <field name="address" type="String"/>
+    </table>
+
+    <table name="MyMessage">
+        <field name="id" type="long" autoInc="true" primaryKey="true" comment="primaryKey of the table"/>
+        <field name="method" type="String"/>
+        <field name="fromUserId" type="long"/>
+        <field name="fromUsername" type="String"/>
+        <field name="content" type="String"/>
+        <field name="result" type="int"/>
+        <field name="timestamp" type="long"/>
+        <field name="hasRead" type="boolean"/>
+    </table>
+
+    <table name="SysMessage">
+        <field name="id" type="long" autoInc="true" primaryKey="true" comment="primaryKey of the table"/>
+        <field name="method" type="String"/>
+        <field name="content" type="String"/>
+         <field name="result" type="String"/>
+        <field name="hasRead" type="boolean"/>
+    </table>
+
+    <table name="Operation">
+        <field name="id" type="long" primaryKey="true" comment="primaryKey of the table"/>
+        <field name="title" type="String"/>
+        <field name="content" type="String"/>
+        <field name="image" type="String"/>
+        <field name="time" type="String"/>
+    </table>
+
+</tables>

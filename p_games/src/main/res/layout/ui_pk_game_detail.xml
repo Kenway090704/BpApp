@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bp="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.bemetoy.bp.plugin.games.model.GameLogic"/>
+        <variable
+            name="game"
+            type="com.bemetoy.stub.model.GameInfo" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/game_detail_bg">
+
+        <ImageView
+            android:id="@+id/game_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/game_image_fragment_height"
+            android:src="@drawable/banner"
+            android:scaleType="fitXY"
+            />
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            style="@style/BackBtnStyle"
+            android:layout_centerVertical="false"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/game_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_toLeftOf="@+id/join_btn"
+            android:layout_alignParentLeft="true"
+            android:layout_alignBottom="@+id/game_image"
+            android:text='@{game.title}'
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="深圳选拔赛"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/join_btn"
+            style="@style/DefaultButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/game_image"
+            android:layout_marginRight="@dimen/normal_padding"
+            android:layout_marginBottom="@dimen/smallest_padding"
+            android:enabled="false" />
+
+        <RelativeLayout
+            android:id="@+id/game_detail_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/game_image"
+            android:layout_marginLeft="24dp"
+            >
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/game_time_label_tv"
+                style="@style/GameDetailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/remark_label_tv"
+                android:layout_below="@+id/remark_tv"
+                android:layout_marginTop="6dp"
+                android:text="@string/game_time" />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/game_time_tv"
+                style="@style/GameDetailValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/game_time_label_tv"
+                android:layout_alignBottom="@+id/game_time_label_tv"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="@dimen/smaller_padding"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/list_title_tv"
+                style="@style/GameDetailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/remark_label_tv"
+                android:layout_below="@+id/game_time_label_tv"
+                android:layout_marginTop="6dp"
+                android:text="@string/game_result" />
+
+            <LinearLayout
+                android:id="@+id/game_result_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/list_title_tv"
+                android:layout_marginRight="@dimen/normal_padding"
+                android:orientation="horizontal"
+                android:layout_below="@+id/list_title_tv"
+                android:gravity="center_vertical"
+                android:weightSum="7.5"
+                >
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/ranking_im"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="名次"
+                    tools:text="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textColor="@color/dark_blue"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/time_tv"
+
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="总时间"
+                    android:gravity="center"
+                    tools:text="09'24"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textColor="@color/dark_blue"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/username_tv"
+                    android:layout_weight="1.5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="昵称"
+                    android:gravity="center"
+                    tools:text="玩家昵称"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textColor="@color/dark_blue"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/car_type_tv"
+                    android:layout_weight="1.5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="赛车名"
+                    android:gravity="center"
+                    tools:text="飞龙系列赛车"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/dark_blue"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/single_circle_time_tv"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="单圈最快时间"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    tools:text="单圈2'00"
+                    android:textColor="@color/dark_blue"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/single_circle_speed_tv"
+                    android:layout_weight="1.5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="最快单圈速度"
+                    android:gravity="center"
+                    tools:text=""
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textColor="@color/dark_blue"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/circle_count_tv"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="圈数"
+                    android:gravity="center"
+                    tools:text="总圈数"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/dark_blue"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/reward_tv"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="积分变化"
+                    android:gravity="center"
+                    tools:text="2000"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textColor="@color/dark_blue"
+                    />
+            </LinearLayout>
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/game_result_title"
+                android:layout_alignLeft="@+id/game_result_title"
+                android:layout_marginRight="@dimen/normal_padding"
+                android:background="@color/dark_blue"
+                />
+
+            <com.bemetoy.bp.uikit.widget.recyclerview.LoadMoreRecyclerView
+                android:id="@+id/game_result_vr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignLeft="@+id/list_title_tv"
+                android:layout_below="@+id/line"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="@dimen/normal_padding"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>
+

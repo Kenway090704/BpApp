@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bp="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#BF3F6FA6"
+        >
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/cancel_btn"
+            style="@style/DefaultActionButtonStyle_2"
+            android:paddingLeft="@dimen/smallest_padding"
+            android:paddingRight="@dimen/smallest_padding"
+            android:layout_marginLeft="@dimen/normal_padding"
+            android:background="@drawable/location_cancel_drawable"
+            android:layout_marginTop="@dimen/normal_padding"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/confirm_btn"
+            style="@style/DefaultActionButtonStyle_2"
+            android:paddingLeft="@dimen/smallest_padding"
+            android:paddingRight="@dimen/smallest_padding"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/normal_padding"
+            android:layout_marginTop="@dimen/normal_padding"
+            android:background="@drawable/location_confirm_drawable"
+            />
+
+        <com.bemetoy.bp.uikit.widget.kankan.wheel.WheelView
+            android:id="@+id/province_wv"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/city_wv"
+            android:layout_alignParentBottom="true"
+            android:background="@color/translucent"
+            bp:itemTextSize="@dimen/normal_text_size"
+            bp:centerTextSize="28sp"
+            />
+
+        <com.bemetoy.bp.uikit.widget.kankan.wheel.WheelView
+            android:id="@+id/city_wv"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/translucent"
+            bp:itemTextSize="@dimen/normal_text_size"
+            bp:centerTextSize="28sp"
+            />
+
+        <com.bemetoy.bp.uikit.widget.kankan.wheel.WheelView
+            android:id="@+id/district_wv"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/city_wv"
+            android:layout_alignParentBottom="true"
+            android:background="@color/translucent"
+            bp:itemTextSize="@dimen/normal_text_size"
+            bp:centerTextSize="28sp"
+            />
+
+    </RelativeLayout>
+
+</layout>
+
+

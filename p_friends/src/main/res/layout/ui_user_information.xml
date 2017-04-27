@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bp="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+
+    <data>
+        <import type="com.bemetoy.stub.account.AccountLogic"/>
+
+        <variable
+            name="userInfo"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.AccountInfo"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_bar_rl"
+            style="@style/PageTitleBarStyle">
+
+            <ImageButton
+                android:id="@+id/back_btn"
+                style="@style/BackBtnStyle"
+                android:layout_centerVertical="false"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/user_info_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/page_title_margin_top"
+                android:text="@string/user_detail_title"
+                style="@style/DefaultTextViewTitleStyle"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/action_btn"
+                style="@style/DefaultActionButtonStyle_4"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/next_btn_margin_right"
+                android:layout_marginTop="@dimen/action_btn_margin_top"
+                android:background="@drawable/friends_add_friends_drawable"
+                />
+        </RelativeLayout>
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/user_avatar_im"
+            android:layout_width="@dimen/bigger_avatar_width"
+            android:layout_height="@dimen/bigger_avatar_width"
+            android:layout_below="@+id/title_bar_rl"
+            android:layout_marginLeft="@dimen/larger_padding"
+            android:layout_marginTop="@dimen/min_padding"
+            android:padding="4dp"
+            bp:roundAsCircle="true"
+            android:background="@drawable/choose_avatar_bg"
+            bind:imageUrl='@{AccountLogic.getAvatarImageUrl(userInfo.icon)}'
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/username_tv"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_toRightOf="@+id/user_avatar_im"
+            android:layout_marginRight="32dp"
+            android:layout_alignTop="@+id/user_avatar_im"
+            android:layout_marginLeft="@dimen/larger_padding"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:background="@drawable/friends_username_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:text='@{userInfo.name}'
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/level_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/username_tv"
+            android:layout_alignLeft="@+id/username_tv"
+            android:paddingTop="@dimen/smaller_padding"
+            android:paddingBottom="@dimen/smaller_padding"
+            android:paddingLeft="16dp"
+            android:layout_alignRight="@+id/username_tv"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/friends_level_bg"
+            android:gravity="center_vertical"
+            android:text='@{userInfo.levelName}'
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/level_tv"
+            android:layout_alignLeft="@+id/level_tv"
+            android:layout_alignRight="@+id/level_tv"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:background="@color/task_detail_bg"
+                android:paddingBottom="@dimen/large_padding">
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/car_count_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_padding"
+                    android:text='@{@string/car_own(userInfo.carCount100)}'
+                    android:textColor="@color/white"
+                    bp:stroke_width="1dp"
+                    bp:stroke_color="@color/dark_blue"
+                    bind:text="已经拥有10辆车"
+                    android:textSize="@dimen/small_text_size"
+                    />
+
+                <TextView
+                    android:id="@+id/latest_car_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/car_count_tv"
+                    android:layout_alignLeft="@+id/car_count_tv"
+                    android:text="@{@string/car_latest(userInfo.carName)}"
+                    android:textColor="@color/white"
+                    bp:stroke_width="1dp"
+                    bp:stroke_color="@color/dark_blue"
+                    bind:text="最近在使用的车辆:爆裂飞车"
+                    android:textSize="@dimen/small_text_size"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/user_prov_label_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/latest_car_name_tv"
+                    android:layout_alignLeft="@+id/latest_car_name_tv"
+                    android:layout_marginTop="16dp"
+                    android:drawableLeft="@drawable/common_rec_white"
+                    android:drawablePadding="4dp"
+                    android:text="@{@string/user_prov(userInfo.province)}"
+                    android:textColor="@color/white"
+                    bp:stroke_width="1dp"
+                    bp:stroke_color="@color/dark_blue"
+                    android:textSize="@dimen/small_text_size"
+                    />
+
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/user_city_label_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_prov_label_tv"
+                    android:layout_alignLeft="@+id/user_prov_label_tv"
+                    android:layout_marginTop="12dp"
+                    android:drawableLeft="@drawable/common_rec_white"
+                    android:drawablePadding="4dp"
+                    android:text="@{@string/user_city(userInfo.city)}"
+                    android:textColor="@color/white"
+                    bp:stroke_width="1dp"
+                    bp:stroke_color="@color/dark_blue"
+                    android:textSize="@dimen/small_text_size"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/user_state_rank_label_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_city_label_tv"
+                    android:layout_alignLeft="@+id/user_city_label_tv"
+                    android:layout_marginTop="12dp"
+                    android:drawableLeft="@drawable/common_rec_white"
+                    android:drawablePadding="4dp"
+                    android:text="@{@string/user_state_rank(userInfo.nationalRank)}"
+                    android:textColor="@color/white"
+                    bp:stroke_width="1dp"
+                    bp:stroke_color="@color/dark_blue"
+                    android:textSize="@dimen/small_text_size"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpTextView
+                    android:id="@+id/user_prov_rank_label_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_state_rank_label_tv"
+                    android:layout_alignLeft="@+id/user_state_rank_label_tv"
+                    android:layout_marginTop="12dp"
+                    android:drawableLeft="@drawable/common_rec_white"
+                    android:drawablePadding="4dp"
+                    android:text="@{@string/user_prov_rank(userInfo.provinceRank)}"
+                    android:textColor="@color/white"
+                    bp:stroke_width="1dp"
+                    bp:stroke_color="@color/dark_blue"
+                    android:textSize="@dimen/small_text_size"
+                    />
+            </RelativeLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+</layout>

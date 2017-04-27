@@ -1,0 +1,19 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bemetoy.bp.plugin.friends">
+
+    <application
+        android:allowBackup="true">
+
+        <activity
+            android:name=".ui.FriendsUI" android:screenOrientation="landscape" android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.SearchFriendUI"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".ui.UserInfoUI" android:screenOrientation="landscape" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.FriendDetailUI" android:screenOrientation="landscape" android:theme="@style/AppTheme.NoActionBar"/>
+    </application>
+
+</manifest>

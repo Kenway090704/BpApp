@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        android:padding="@dimen/large_padding"
+        >
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            style="@style/DefaultDialogTitleStyle"
+            android:text="@string/personal_center_too_many_addresses"
+            />
+
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dialog_content_height"
+            android:textColor="@color/light_blue"
+            android:text="@string/personal_center_addresses_at_most_5"
+            android:layout_below="@+id/title_tv"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/smaller_padding"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/confirm_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/content_tv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:background="@drawable/common_queding_drawable"
+             />
+    </RelativeLayout>
+</layout>
+

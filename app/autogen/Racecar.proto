@@ -1,0 +1,1077 @@
+option optimize_for = LITE_RUNTIME;
+
+option java_package="com.bemetoy.bp.autogen.protocol";
+option java_outer_classname="Racecar";
+
+enum CommonHeaderErrorCode {
+    Common_Header_Error_Code_OK                     = 0;  // OK
+    Common_Header_Error_Code_Session_Key_Time_Out   = -1; // session key time out
+    Common_Header_Error_Code_UnPack_Fail            = -2; // 业务包解包失败
+    Common_Header_Error_Code_UnRecognize_CMD        = -3;
+    Common_Header_Error_Code_Require_Resource_Error = -4;
+    Common_Header_Error_Code_Svr_Rpc_Call_Error     = -5;
+}
+
+enum CompressAlg {
+    BM_NO_COMPRESS   = 0; // 不压缩
+    BM_ZLIB_COMPRESS = 1; // zlib压缩
+}
+
+enum CryptAlg {
+    NO_ENCRYPT                  = 0;
+    RSA_ENCRYPT_WITH_PUBLICKEY  = 1; // RSA
+    AES_ENCRYPT_WITH_PRIVATEKEY = 2; // AES
+}
+
+message CommonHeader {
+    required int32  ErrorCode            = 1;
+    required uint32 CryptoAlogrithm      = 2;
+    required uint32 RSAPublicKeyVersion  = 3;
+    required uint32 CompressAlogrithm    = 4;
+    required uint32 UserId               = 5;
+    optional uint32 LengthBeforeCompress = 6;
+}
+
+
+// 注释后面有`X`，说明还未提供
+enum CmdId {
+    BENCHMARK               = 1;
+
+    REGISTER                = 1000; // 注册
+    LOGIN                   = 1001; // 登录
+    CHECK_USER              = 1002; // 检查用户是否已注册
+    CHECK_CAR_ID            = 1003; // 检查车ID(for重置密码)
+    MODIFY_ACCOUNT_INFO     = 1004; // 修改(完善)用户信息
+    RESET_PASSWD            = 1005; // 重置密码
+    LOGOUT                  = 1006; // 注销
+    ADD_ADDRESS             = 1007; // 添加地址
+    MODIFY_ADDRESS          = 1008; // 修改地址
+    DELETE_ADDRESS          = 1009; // 删除地址
+
+    GET_HOME                = 1010; // 获取首页
+    EXCHANGE                = 1011; // 激活码兑换
+    ONLINE_STORE            = 1012; // 线上商城
+    RESOURCE_LIST           = 1013; // 资料库
+    GET_ACCOUNT_INFO        = 1014; // 获取个人信息，赛事和成就需要再次拉取(与Alfred商定)
+    GET_ACCOUNT_GAME        = 1015; // 获取个人赛事(赛事列表页：个人，个人中心：我的赛事)
+    GET_ACCOUNT_ACHIEVEMENT = 1016; // 获取个人成就 X
+    GET_RANK_RULE           = 1017; // 获取排行榜规则
+    GET_RANK                = 1018; // 获取排行榜
+    GET_GAME                = 1019; // 获取赛事(赛事列表页，个人没有报名的赛事)
+    JOIN_GAME               = 1020; // 赛事报名
+    GET_FRIEND              = 1021; // 获取好友
+    SCORE_STORE             = 1022; // 积分商城
+    FIND_FRIEND             = 1023; // 查找好友
+    DELETE_FRIEND           = 1024; // 删除好友
+    SCORE_STORE_EXCHANGE    = 1025; // 积分商城兑换
+    GET_PLACE               = 1026; // 获取赛点
+    GET_GAME_BY_PLACE       = 1027; // 获取赛点举办过的赛事(增量拉取)
+    GET_GAME_RESULT         = 1028; // 获取赛事成绩(增量拉取)
+    GET_GAME_BY_ID          = 1040; // 根据赛事id获取赛事详情
+    CHECK_VERSION           = 1041; // 检查版本
+    UPDATE_APNS_TOKEN       = 1042; // 更新apns token
+    GET_ADDR_DATA           = 1043; // 获取地址数据
+    CHECK_ADDR              = 1044; // 检查地址
+    CHECK_ACCOUNT           = 1045; // 检查账号
+
+    // U3D
+    ACTIVATE_CAR            = 1029; // 激活赛车
+    SAVE_REFIT              = 1030; // 保存改装
+    RENAME_CAR              = 1031; // 赛车改名
+
+    GET_TASK                = 1032; // 拉取任务
+    GET_REWARD              = 1033; // 领取奖励
+    GET_ACHIEVE             = 1034; // 拉取成就
+
+    // 奥飞接口相关
+    GET_IMAGE_VERIFY        = 1100; // 获取图片验证码
+    GET_PHONE_VERIFY        = 1101; // 获取手机验证码
+    AOFEI_REGISTER          = 1102; // 注册
+    AOFEI_LOGIN             = 1103; // 登录
+    AOFEI_GET_ICONS         = 1104; // 获取头像列表
+    ACTIVATE_CDKEY          = 1105; // 激活CDKEY(兑换积分，绑定赛车)
+
+    // 积分商城
+    GOODS_LIST              = 1106; // 积分商城：商品列表
+    GOODS_DETAIL            = 1107; // 积分商城：商品详情（暂时没用）
+    GOODS_EXCHANGE          = 1108; // 积分商城：商品兑换
+    ORDER_LIST              = 1109; // 积分商城：兑换记录
+
+    SYNC_JSON               = 2000;
+    SYNC_REQUEST            = 2001; // sync request
+}
+
+// 通用错误码(255~) 避免与奥飞冲突
+enum ErrorCode {
+    ERROR_OK        = 0;
+    SERVER_ERROR    = 255; // 服务端出错
+    PARAMETER_ERROR = 254; // 客户端请求参数错误
+}
+
+message BaseRequest {
+    required uint32 UserId        = 1; // 用户ID，唯一标识一个用户
+    required string DeviceId      = 2; // 设备唯一标识
+    required string DeviceType    = 3; // 平台版本
+    required uint32 ClientVersion = 4; // 客户端版本
+}
+
+message BaseResponse {
+    required int32  Result   = 1;
+    optional string ErrorMsg = 2;
+}
+
+message BenchmarkRequest {
+    required BaseRequest PrimaryReq = 1 ;
+}
+
+message BenchmarkResponse {
+    required BaseResponse PrimaryResp = 1;
+}
+
+// REGISTER
+message RegistRequest {
+    required BaseRequest PrimaryReq = 1 ; // 基础定义
+    optional string      name       = 2 ; // 用户名
+    optional string      passwd     = 3 ; // 密码的MD5
+    optional string      province   = 4 ; // 省
+    optional string      city       = 5 ; // 市
+    optional string      district   = 6 ; // 区
+    optional string      icon       = 7 ; // 头像
+    optional int32       scene      = 8 ; // 待约定
+    optional bytes       tempkey   = 9 ; // 服务端用来后续加密响应内容
+}
+
+message RegistResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional uint32 UserId            = 2;
+}
+
+// LOGIN
+message LoginRequest {
+    required BaseRequest PrimaryReq = 1;
+    required string      name       = 2;
+    required string      passwd     = 3;
+    required bytes       tempkey   = 4;
+    optional string      IMEI       = 5;
+    optional string      time       = 6;
+    optional int32       Scene      = 7;
+}
+
+message LoginResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional uint32       user_id      = 2;
+    optional bytes        session_key  = 3;
+}
+
+// CHECK_USER
+message CheckUserRequest {
+    required BaseRequest PrimaryReq = 1;
+    required string      name       = 2;
+    required bytes       tempkey    = 3; // 服务端用来后续加密响应内容
+}
+
+message CheckUserResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional bool         exist       = 2;
+}
+
+// Place(赛点)
+message Place {
+    optional int32  id        = 1  ;
+    optional string name      = 2  ; // 名称
+    optional string image1    = 3  ; // 轮播图URL1
+    optional string image2    = 4  ; // 轮播图URL2
+    optional string call1     = 5  ; // 电话1
+    optional string call2     = 6  ; // 电话2
+    optional int32  track     = 7  ; // 赛道类型：1=>水平，2=>垂直，3=>八字形，4=>螺旋
+    optional string province  = 8  ; // 省
+    optional string city      = 9  ; // 市
+    optional string district  = 10 ; // 区
+    optional string detail    = 11 ; // 详细地址
+    optional string longitude = 12 ; // 百度地图标识：经度
+    optional string latitude  = 13 ; // 百度地图标识：纬
+
+    optional int32  state     = 14 ; // 状态：-1=>从未举办赛事，0=>即将开始, 1=>进行中，2=>已结束
+    optional int32  game_id   = 15 ; // 地图里状态关联的赛事ID
+}
+
+// GET_PLACE(获取赛点)
+message GetPlaceRequest {
+    required BaseRequest PrimaryReq = 1;
+    optional string      province   = 2; // 省
+    optional string      city       = 3; // 市
+    optional string      district   = 4; // 区
+}
+
+message GetPlaceResponse {
+    required BaseResponse PrimaryResp = 1;
+    repeated Place        place       = 2;
+}
+
+// Game(赛事)
+// 官方赛：除pk_score外
+// PK赛信息：ID, title, type, state, real_join, pk_score
+message Game {
+    required uint32 id           = 1  ; // id
+    optional string title        = 2  ; // 标题
+    optional int32  type         = 3  ; // 类型：1=>周赛，2=>城市赛，3=>省区选拔赛，4=>全国赛，5=>主题赛，20=>练习赛，21=>PK赛
+    optional int32  state        = 4  ; // 赛事状态：0=>即将开始, 1=>进行中，2=>已结束
+    optional string begin        = 5  ; // 开始时间
+    optional string end          = 6  ; // 结束时间
+    optional int32  total        = 7  ; // 总人数
+    optional int32  join         = 8  ; // 线上参与人数
+    optional string province     = 9  ; // 省
+    optional string city         = 10 ; // 市
+    optional string district     = 11 ; // 区
+    optional string detail       = 12 ; // 详情
+    optional Place  place        = 14 ; // 赛点
+    optional string coach_name   = 16 ; // 教练昵称
+    optional string coach_mobile = 17 ; // 教练手机
+    optional int32  real_join    = 18 ; // 真实参加人数
+    optional int32  pk_score     = 19 ; // PK赛压分
+    optional string image1       = 20 ; // 轮播图URL1
+    optional string image2       = 21 ; // 轮播图URL2
+    optional bool   joined       = 22 ; // 用户是否报名该比赛
+}
+
+// GET_GAME_BY_PLACE
+message GetGameByPlaceRequest {
+    required BaseRequest PrimaryReq = 1;
+    required int32       place_id   = 2;
+    optional int32       offset     = 3; // 从0开始
+    optional int32       count      = 4  [default = 20];
+}
+
+message GetGameByPlaceResponse {
+    required BaseResponse PrimaryResp = 1;
+    repeated Game         game        = 2;
+}
+
+// GET_GAME_BY_ID
+message GetGameByIdRequest {
+    required BaseRequest PrimaryReq = 1;
+    required int32       game_id    = 2;
+}
+
+message GetGameByIdResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional Game         game        = 2;
+}
+
+// GET_GAME_RESULT
+message GetGameResultRequest {
+    required BaseRequest PrimaryReq = 1;
+    required int32       game_id    = 2;
+    optional int32       offset     = 3; // 从0开始
+    optional int32       count      = 4  [default = 20];
+}
+
+message GetGameResultResponse {
+    message Result {
+        enum Flag {
+            Flag_OK         = 0; // 正常成绩
+            Flag_CountError = 1; // 圈数异常
+            Flag_TimeError  = 2; // 时间异常
+            Flag_MarkError  = 3; // 手动标识异常
+        }
+        optional int32  user_id    = 1;  // 用户ID
+        optional string user_name  = 2;  // 用户昵称
+        optional string car_name   = 3;  // 车系列名
+        optional double lap_time   = 4;  // 单圈时长(最快，s)
+        optional double total_time = 5;  // 总时长(s)
+        optional uint32 lap_count  = 6;  // 总圈数
+        optional double speed      = 7;  // 冲线速度(km/h)
+        optional uint32 rank       = 8;  // 名次
+        optional int32  score      = 9;  // 积分变动
+        optional Flag   flag       = 10; // 成绩标识
+    }
+    required BaseResponse PrimaryResp = 1;
+    repeated Result       result      = 2; // 成绩
+}
+
+// Operation(运营信息)
+message Operation {
+    optional int32  id      = 1;
+    optional string title   = 2; // 标题
+    optional string content = 3; // 内容URL
+    optional string image   = 4; // 封面图URL
+    optional string time    = 5; // 创建时间
+}
+
+// Car(个人赛车)
+message Car {
+    optional int32  user_car_id = 1; // 用户赛车ID
+    optional string car_base_id = 2; // 赛车编号
+    optional string custom_name = 3; // 自定义名称
+    optional string part        = 4; // 车配件(客户端自定义数据格式)
+}
+
+// AccountInfo(个人信息)
+message AccountInfo {
+    optional uint32  user_id        = 1;   // 用户ID，唯一标识一个用户
+    optional string  name           = 2;   // 昵称
+    optional string  old_name       = 3;   // 旧昵称，客户端通过判断其为空，说明可修改昵称，否则已经修改过，不允许修改
+    optional string  icon           = 4;   // 头像
+    optional string  province       = 5;   // 省
+    optional string  city           = 6;   // 市
+    optional string  district       = 7;   // 区
+    optional string  car_name       = 8;   // 最近使用的车名称
+    optional string  pinyin         = 9;   // 昵称拼音
+
+    optional int32   level          = 21;  // 等级
+    optional int32   exp            = 22;  // 经验值(声望值，经过等级换算的)
+    optional int32   level_exp      = 23;  // 当前升级所需经验值
+    optional int32   score          = 24;  // 积分
+    optional int32   speed          = 25;  // 飙速(废弃)
+    optional int32   total_exp      = 26;  // 总声望(没有经过等级换算)
+    optional string  level_name     = 27;  // 等级名称
+    optional int32   exp_week       = 28;  // 周声望
+
+    repeated Address address        = 40;  // 收货地址
+    repeated Car     car            = 41;  // 用户赛车
+
+    optional int32   car_count      = 100; // 拥有的车数
+    optional int32   parts_count    = 101; // 拥有的配件数
+
+    optional int32   rank_percent   = 200; // 排名百分比，已经乘以100！
+    optional int32   national_rank  = 201; // 全国排名
+    optional int32   province_rank  = 202; // 省排名
+    optional int32   city_rank      = 203; // 市排名
+    optional int32   city_week_rank = 204; // 市周排名
+}
+
+// Address(收货地址)
+message Address {
+    optional int32  id       = 1;
+    optional string contact  = 2; // 联系人
+    optional string mobile   = 3; // 联系人.手机号
+    optional string province = 4; // 省
+    optional string city     = 5; // 市
+    optional string district = 6; // 区
+    optional string detail   = 7; // 详细地址
+    optional int32  flag     = 8; // 1=>默认地址
+}
+
+// ADD_ADDRESS
+message AddAddressRequest {
+    required BaseRequest PrimaryReq = 1;
+    required Address     address    = 2;
+}
+
+message AddAddressResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional int32        id          = 2; // 成功返回该地址ID
+}
+
+// MODIFY_ADDRESS
+message ModifyAddressRequest {
+    required BaseRequest PrimaryReq = 1;
+    required Address     address    = 2;
+}
+
+message ModifyAddressResponse {
+    enum ErrorCode {
+        ID_ERROR = 100; // ID错误
+    }
+    required BaseResponse PrimaryResp = 1;
+}
+
+// DELETE_ADDRESS
+message DeleteAddressRequest {
+    required BaseRequest PrimaryReq = 1;
+    required int32       id         = 2;
+}
+
+message DeleteAddressResponse {
+    enum ErrorCode {
+        ID_ERROR = 100; // ID错误
+    }
+    required BaseResponse PrimaryResp = 1;
+}
+
+// GET_HOME
+message GetHomeRequest {
+    required BaseRequest PrimaryReq = 1;
+    optional string      province   = 2; // 省
+    optional string      city       = 3; // 市
+    optional string      district   = 4; // 区
+}
+
+message GetHomeResponse {
+    required BaseResponse PrimaryResp     = 1;
+    optional uint32       interval        = 2; // 更新间隔(单位:秒)
+    repeated Game         game            = 3; // 赛事信息
+    repeated Operation    operation       = 4; // 运营窗口
+    optional string       car_image       = 5; // 我的赛车图片URL
+    optional string       operation_image = 6; // 运营窗口图片URL
+    optional AccountInfo  account_info    = 7; // 个人信息
+    optional string       online_store    = 8; // 线上商城URL
+}
+
+// EXCHANGE
+message ExchangeRequest {
+    required BaseRequest PrimaryReq = 1;
+    required string      code       = 2;
+}
+
+message ExchangeResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional int32        score       = 2; // 兑换的积分
+    optional int32        user_score  = 3; // 用户兑换后的总积分
+}
+
+// ONLINE_STORE
+message OnlineStoreRequest {
+    required BaseRequest PrimaryReq = 1;
+}
+
+message OnlineStoreResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional string       url         = 2;
+}
+
+// CHECK_CAR_ID
+message CheckCarIdRequest {
+    required BaseRequest PrimaryReq = 1;
+    required string      id         = 2; // 赛车编号
+    required bytes       tempkey    = 3; // 服务端用来后续加密响应内容
+}
+
+message CheckCarIdResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional int32        user_id     = 2; // 若该车ID存在，则将其绑定的uid返回，重置密码需要！
+}
+
+// MODIFY_ACCOUNT_INFO
+message ModifyAccountInfoRequest {
+    required BaseRequest PrimaryReq = 1;
+    optional string      name       = 2; // 昵称
+    optional string      icon       = 3; // 头像
+    optional string      province   = 4; // 省
+    optional string      city       = 5; // 市
+    optional string      district   = 6; // 区
+}
+
+message ModifyAccountInfoResponse {
+    enum ErrorCode {
+        MODIFY_ERROR = 2;   // 更新失败(奥飞)
+        NAME_ERROR   = 100; // 昵称冲突
+    }
+    required BaseResponse PrimaryResp = 1;
+}
+
+// RESET_PASSWD
+message ResetPasswdRequest {
+    required BaseRequest PrimaryReq = 1;
+    required int32       user_id    = 2;
+    required string      passwd     = 3;
+    required bytes       tempkey    = 4; // 服务端用来后续加密响应内容
+}
+
+message ResetPasswdResponse {
+    required BaseResponse PrimaryResp   = 1;
+}
+
+// LOGOUT
+message LogoutRequest {
+    required BaseRequest PrimaryReq = 1;
+}
+
+message LogoutResponse {
+    required BaseResponse PrimaryResp   = 1;
+}
+
+// RESOURCE_LIST
+message ResourceListRequest {
+    required BaseRequest PrimaryReq = 1;
+}
+
+message ResourceListResponse {
+    message Resource {
+        optional int32  id      = 1;
+        optional string title   = 2; // 标题
+        optional string content = 3; // 内容URL
+    }
+    required BaseResponse PrimaryResp = 1;
+    repeated Resource     resource    = 2;
+}
+
+// Notice(公告)
+message Notice {
+    optional int32  id      = 1;
+    optional string title   = 2; // 标题
+    optional string content = 3; // 内容URL
+    optional string image   = 4; // 封面图URL
+    optional string awards  = 5; // 奖励
+}
+
+// GET_ACCOUNT_INFO
+message GetAccountInfoRequest {
+    required BaseRequest PrimaryReq = 1;
+}
+
+message GetAccountInfoResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional AccountInfo account_info = 2;
+}
+
+// GET_ACCOUNT_GAME
+message GetAccountGameRequest {
+    required BaseRequest PrimaryReq = 1 ;
+    required int32       type       = 2 ;        // 类型：0=>不区分，1=>周赛，2=>月赛，21=>PK赛
+    optional int32       offset     = 3 ;        // 从0开始
+    optional int32       count      = 4 [default = 20] ;
+}
+
+message GetAccountGameResponse {
+    required BaseResponse PrimaryResp = 1;
+    repeated Game         game        = 2;
+}
+
+// GET_ACCOUNT_ACHIEVEMENT
+message GetAccountAchievementRequest {
+    required BaseRequest PrimaryReq = 1;
+}
+
+message GetAccountAchievementResponse {
+    required BaseResponse PrimaryResp = 1;
+}
+
+// GET_RANK_RULE
+message GetRankRuleRequest {
+    required BaseRequest PrimaryReq = 1;
+}
+
+message RankRule {
+    optional int32  type  = 1; // 1=>全国，2=>省，3=>市，4=>市周
+    optional string title = 2; // 标题：全国总排行榜奖励，奖励时间：每周日7点
+    optional string text  = 3; // 第1名：奖励声望XXX；奖励积分XXX\n第2名：奖励声望XXX；奖励积分XXX
+}
+
+message GetRankRuleResponse {
+    required BaseResponse PrimaryResp = 1;
+    repeated RankRule     rank_rule   = 2;
+}
+
+// GET_RANK
+message GetRankRequest {
+    enum Type {
+        NATIONAL  = 1; // 全国排名
+        PROVINCE  = 2; // 省排名
+        CITY      = 3; // 市排名
+        CITY_WEEK = 4; // 市周排名
+    }
+    required BaseRequest PrimaryReq = 1;
+    optional Type        type       = 2 [default = NATIONAL]; // 查询类型
+    optional int32       count      = 3 [default = 10]; // 需要的结果数量
+    optional bool        up         = 4; // 查询方向，false=>向下查询，true=>向上查询
+    optional int32       offset     = 5; // 查询的排名起始名次，包含该条
+}
+
+message GetRankResponse {
+    enum ErrorCode {
+        UNKNDOWN_TYPE = 100; // 未知的查询类别
+    }
+    required BaseResponse PrimaryResp       = 1;
+    repeated AccountInfo  account_info      = 2;
+}
+
+// GET_GAME
+message GetGameRequest {
+    required BaseRequest PrimaryReq = 1;
+    optional string      province   = 2; // 省
+    optional string      city       = 3; // 市
+    optional string      district   = 4; // 区
+    optional int32       offset     = 5; // 从0开始
+    optional int32       count      = 6  [default = 20];
+}
+
+message GetGameResponse {
+    required BaseResponse PrimaryResp = 1;
+    repeated Game         game        = 2;
+    optional string       text        = 3; // 滚动文字
+}
+
+// JOIN_GAME
+message JoinGameRequest {
+    required BaseRequest PrimaryReq = 1;
+    required int32       id         = 2;
+}
+
+message JoinGameResponse {
+    enum ErrorCode {
+        JOIN_ERROR     = 100; // 报名失败(ID错误或该比赛已开始)
+        JOIN_DUPLICATE = 101; // 不可重复报名
+        AREA_INVALID   = 102; // 区域不符合条件
+        UID_INVALID    = 103; // uid不符合条件(全国赛)
+    }
+    required BaseResponse PrimaryResp = 1;
+}
+
+// GET_FRIEND
+message GetFriendRequest {
+    required BaseRequest PrimaryReq = 1;
+}
+
+message GetFriendResponse {
+    required BaseResponse PrimaryResp  = 1;
+    repeated AccountInfo  account_info = 2;
+}
+
+// FIND_FRIEND
+message FindFriendRequest {
+    required BaseRequest PrimaryReq = 1;
+    optional string      name       = 2;
+}
+
+message FindFriendResponse {
+    required BaseResponse PrimaryResp  = 1;
+    repeated AccountInfo  account_info = 2;
+}
+
+// DELETE_FRIEND
+message DeleteFriendRequest {
+    required BaseRequest PrimaryReq = 1;
+    required int32       user_id    = 2; // 好友的uid
+}
+
+message DeleteFriendResponse {
+    required BaseResponse PrimaryResp  = 1;
+}
+
+// SCORE_STORE
+message ScoreStoreRequest {
+    enum Type {
+        ALL       = 0; // 拉取所有类别的
+        RECOMMEND = 1; // 推荐
+        USUAL     = 2; // 日常
+        PARTS     = 3; // 配件
+        VEHICLE   = 4; // 车辆
+        FUNCTION  = 5; // 功能
+    }
+    required BaseRequest PrimaryReq = 1;
+    optional Type        type       = 2;
+}
+
+// 性能参数
+message Parameter {
+    optional int32 stability    = 1; // 稳定性
+    optional int32 weight       = 2; // 重量
+    optional int32 road_holding = 3; // 抓地力
+    optional int32 output_power = 4; // 输出功率
+    optional int32 stamina      = 5; // 持久力
+    optional int32 rotate_speed = 6; // 转速
+    optional int32 flexibility  = 7; // 灵活性
+    optional int32 torsion      = 8; // 扭力
+}
+
+
+message ScoreStoreResponse {
+    message Item {
+        optional int32                  id        = 1;
+        optional ScoreStoreRequest.Type type      = 2; // 类别
+        optional string                 name      = 3; // 名称
+        optional string                 image     = 4; // 图片URL
+        optional int32                  score     = 5; // 积分
+        optional string                 describe  = 6; // 描述
+        optional int32                  own_count = 7; // 用户拥有的个数
+        optional int32                  count     = 8; // 剩余数量
+        optional Parameter              parameter = 9; // 性能参数
+    }
+    required BaseResponse PrimaryResp = 1;
+    repeated Item         item        = 2;
+}
+
+// SCORE_STORE_EXCHANGE
+message ScoreStoreExchangeRequest {
+    required BaseRequest PrimaryReq = 1;
+    required int32       item_id    = 2; // 要兑换物品ID
+    required int32       address_id = 3; // 地址ID
+}
+
+message ScoreStoreExchangeResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional int32        user_score  = 2; // 用户兑换后的总积分
+}
+
+//ACTIVATE_CDKEY
+message ActivateCdkeyRequest {
+    required BaseRequest PrimaryReq = 1;
+    required string      cdkey      = 2;
+    optional int32       type       = 3; // 要兑换的类型：0=>不限定，1=>积分，2=>赛车
+}
+
+message ActivateCdkeyResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional int32        type        = 2; // 兑换结果类型：1=>积分，2=>赛车
+    optional Car          car         = 3; // 赛车信息
+    optional int32        count       = 4; // 该款赛车的数量
+    optional int32        score       = 5; // 兑换的积分
+    optional int32        user_score  = 6; // 用户兑换后的总积分
+}
+
+// ACTIVATE_CAR
+message ActivateCarRequest {
+    required BaseRequest PrimaryReq = 1;
+    required string      car_id     = 2; // 赛车编码
+}
+
+message ActivateCarResponse {
+    enum ErrorCode {
+        ID_ERROR   = 100; // 赛车ID不存在
+        ID_INVALID = 101; // 赛车ID无效(已绑定)
+    }
+    required BaseResponse PrimaryResp = 1;
+    optional Car          car         = 2; // 赛车信息
+    optional int32        count       = 3; // 该款赛车的数量
+}
+
+// SAVE_REFIT
+message SaveRefitRequest {
+    required BaseRequest PrimaryReq  = 1;
+    required int32       user_car_id = 2; // 用户赛车ID
+    required string      part        = 3; // 配件
+}
+
+message SaveRefitResponse {
+    enum ErrorCode {
+        ID_ERROR = 100;   // ID不存在
+    }
+    required BaseResponse PrimaryResp = 1;
+}
+
+// RENAME_CAR
+message RenameCarRequest {
+    required BaseRequest PrimaryReq  = 1;
+    required int32       user_car_id = 2; // 赛车编码
+    required string      name        = 3; // 赛车名
+}
+
+message RenameCarResponse {
+    enum ErrorCode {
+        ID_ERROR = 100;   // ID不存在
+    }
+    required BaseResponse PrimaryResp = 1;
+}
+
+// SYNC
+
+// 用来产生一条json格式的sync消息
+// SYNC_JSON
+message SyncJsonRequest {
+    required BaseRequest PrimaryReq = 1;
+    required string      data       = 2;
+}
+
+message SyncJsonResponse {
+    enum ErrorCode {
+        DATA_ERROR = 100; // json数据有误
+    }
+    required BaseResponse PrimaryResp = 1;
+    optional string       data        = 2;
+}
+
+message JsonMessage {
+    required string data        = 1;
+    optional string create_time = 2;
+}
+
+message CommandItem { // wrapper for concrete message
+    enum Type {
+        JSON_MESSAGE = 1;
+    }
+    required Type  type = 1;
+    required bytes data = 2;
+}
+
+// 对应用户通道索引
+enum SyncChannel {
+    SyncChannel_JSON = 0;
+}
+
+message SyncSequence {
+   required SyncChannel key   = 1; // 对应用户的消息通道的key
+   required uint32      value = 2; // sync sequence
+                                   // request: [pre_value, value]所有消息已拉取(包含该值)，初始值为0，下发的seq为该值+1！
+                                   // response: [pre_value, value]消息已下发(包含该值)
+   /* optional uint32      count = 3; // 拉取多少，不填的话，由服务端控制下发数量 */
+}
+
+// 拉取请求和对之前的数据ACK
+message SyncRequest {
+    enum Selector {
+        NONE = 0x00;
+        JSON = 0x01;
+    }
+    required BaseRequest  PrimaryReq   = 1;
+    required Selector     selector     = 2;
+    repeated SyncSequence syncSequence = 3;
+}
+
+message SyncResponse {
+    required BaseResponse PrimaryResp  = 1;
+    repeated CommandItem  commandItem  = 2;
+    repeated SyncSequence syncSequence = 3;
+    required bool         continueflag = 4; // 若置位，则说明一次没下发完，客户端需要继续做sync
+}
+
+// AOFEI_REGISTER
+message AofeiRegistRequest {
+    required BaseRequest PrimaryReq   = 1 ; // 基础定义
+    required string      account      = 2 ; // 账号名
+    optional string      passwd       = 3 ; // 密码的MD5
+    optional string      phone_verify = 4 ; // 手机验证码(若是手机号注册，则需要先发送验证码)
+    optional bytes       tempkey      = 5 ; // 服务端用来后续加密响应内容
+}
+
+message AofeiRegistResponse {
+    enum ErrorCode {
+        ACCOUNT_EXIST      = 1;   // 账号已存在
+        ACCOUNT_INVALID    = 101; // 账号格式错误
+        PHONE_VERIFY_ERROR = 102; // 短信验证码输入错误或者为空：验证码输入错误，请重新输入
+        PHONE_EXIST        = 106; // 手机号已注册,请重新输入
+    }
+    required BaseResponse PrimaryResp = 1;
+}
+
+// AOFEI_LOGIN
+message AofeiLoginRequest {
+    required BaseRequest PrimaryReq   = 1;
+    required string      account      = 2; // 账号名(普通帐号：须为字母开头，6-12位字母或数字)
+    optional string      passwd       = 3; // 密码(普通登录，需要设置)
+    optional string      phone_verify = 4; // 短信验证码(手机快速登录，passwd字段留空)，
+    optional bytes       tempkey      = 5;
+    optional int32       Scene        = 6;
+}
+
+message AofeiLoginResponse {
+    enum ErrorCode {
+        ACCOUNT_ERROR      = 1;   // 用户不存在
+        PASSWD_ERROR       = 2;   // 密码错误
+        DISALLOW_LOGIN     = 13;  // 太多错误次数，5 分钟内禁止登录
+        ACCOUNT_INVALID    = 101; // 账号格式错误
+        PHONE_VERIFY_ERROR = 102; // 短信验证码错误或者为空：验证码输入错误，请重新输入
+    }
+    required BaseResponse PrimaryResp = 1;
+    optional uint32       user_id     = 2;
+    optional bytes        session_key = 3;
+    optional bool         need_fill   = 4; // 是否需要填写资料
+    optional string       name        = 5; // 昵称
+    optional string       province    = 6; // 省
+    optional string       city        = 7; // 市
+    optional string       district    = 8; // 区
+}
+
+// AOFEI_GET_ICONS
+message AofeiGetIconsRequest {
+    required BaseRequest PrimaryReq = 1;
+}
+
+message AofeiGetIconsResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional string       json        = 2;
+}
+
+// GET_IMAGE_VERIFY(获取图片验证码)
+message GetImageVerifyRequest {
+    required BaseRequest PrimaryReq = 1;
+    optional bytes       tempkey    = 2; // 服务端用来后续加密响应内容
+}
+
+message GetImageVerifyResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional string       url         = 2; // 图片验证码url
+    optional string       verify_code = 3; // 图片验证码
+}
+
+// GET_PHONE_VERIFY(获取手机验证码)
+// 发送间隔：120S
+message GetPhoneVerifyRequest {
+    required BaseRequest PrimaryReq = 1;
+    required string      phone      = 2; // 手机号
+    required int32       type       = 3; // 验证码类型(1=>登录，2=>注册)
+    optional bytes       tempkey    = 4; // 服务端用来后续加密响应内容
+}
+
+message GetPhoneVerifyResponse {
+    enum ErrorCode {
+        ALREADRY_REGISTER = 106; // 该手机号已注册,请重新输入
+        NOT_REGISTER      = 107; // 该手机号暂未注册"
+        ALREADY_EXIST     = 108; // 验证码已存在
+        PHONE_ERROR       = 109; // 手机号错误
+        COUNT_ERROR       = 110; // 超过每天获取短信条数
+    }
+    required BaseResponse PrimaryResp = 1;
+}
+
+// GET_TASK
+message GetTaskRequest {
+    required BaseRequest PrimaryReq = 1;
+    required int32       type       = 2; // 类型：1=>线上，2=>线下
+}
+
+message Task {
+    optional int32  task_id = 1; // ID
+    optional string name    = 2; // 名称
+    optional string desc    = 3; // 描述
+    optional string image   = 4; // 图片
+    optional int32  type    = 5; // 类型：1=>线上，2=>线下
+    optional int32  status  = 6; // 状态：0=>未完成，1=>已完成(未领取)，2=>已完成(已领取)
+    optional int32  jump_id = 7; // 跳转页面ID
+}
+
+message GetTaskResponse {
+    required BaseResponse PrimaryResp = 1;
+    repeated Task         task        = 2;
+}
+
+// GET_REWARD
+message GetRewardRequest {
+    required BaseRequest PrimaryReq = 1;
+    required int32       task_id    = 2; // 任务ID
+}
+
+// 因领取奖励，涉及到更新用户声望，积分，排名等所有相关信息，所以需要重新再拉取个人信息
+message GetRewardResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional int32        score       = 2; // 奖励的积分
+    optional int32        exp         = 3; // 奖励的声望
+}
+
+// GET_ACHIEVE
+message GetAchieveRequest {
+    required BaseRequest PrimaryReq = 1;
+}
+
+message Achieve {
+    optional int32  achieve_id = 1; // ID
+    optional string name       = 2; // 名称
+    optional string desc       = 3; // 描述
+    optional string image      = 4; // 图片
+    optional bool   finished   = 5; // 是否完成
+}
+
+message GetAchieveResponse {
+    required BaseResponse PrimaryResp = 1;
+    repeated Achieve      achieve     = 2;
+}
+
+// CHECK_VERSION
+message CheckVersionRequest {
+    enum Type {
+        ANDROID = 1;
+        IOS     = 2;
+    }
+    required BaseRequest PrimaryReq = 1;
+    required Type        type       = 2;
+}
+
+message CheckVersionResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional string       version     = 2;
+    optional string       md5         = 3;
+    optional string       url         = 4;
+    optional string       changelog   = 5;
+}
+
+// UPDATE_APNS_TOKEN
+message UpdateApnsTokenRequest {
+    required BaseRequest PrimaryReq = 1;
+    required string      token      = 2;
+}
+
+message UpdateApnsTokenResponse {
+    required BaseResponse PrimaryResp = 1;
+}
+
+// GET_ADDR_DATA
+message GetAddrDataRequest {
+    required BaseRequest PrimaryReq = 1;
+    optional uint32      version    = 2; // 版本ID
+}
+
+message GetAddrDataResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional uint32       version     = 2; // 版本ID
+    optional string       url         = 3; // 下载链接
+    optional string       md5         = 4; // MD5
+}
+
+// GOODS_LIST
+message GoodsListRequest {
+    required BaseRequest PrimaryReq = 1;
+}
+
+message GoodsListResponse {
+    message Item {
+        optional uint32    goods_id      = 1  ;
+        optional int32     type          = 2  ; // 类别：1=>赛车，2=>配件
+        optional bool      recommend     = 3  ; // 是否推荐
+        optional uint32    recommend_num = 4  ; // 推荐商品排序号 越大排位越靠前
+        optional string    name          = 5  ; // 名称
+        optional string    image         = 6  ; // 图片URL
+        optional int32     score         = 7  ; // 积分
+        optional string    describe      = 8  ; // 描述
+        optional Parameter parameter     = 9  ; // 性能参数
+        optional string    detail_text   = 10 ; // 额外描述(兑换说明)
+    }
+    required BaseResponse PrimaryResp = 1;
+    repeated Item         item        = 2;
+}
+
+// GOODS_EXCHANGE
+message GoodsExchangeRequest {
+    required BaseRequest PrimaryReq = 1;
+    required uint32      goods_id   = 2; // 要兑换物品ID
+    required uint32      address_id = 3; // 地址ID
+}
+
+message GoodsExchangeResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional int32        user_score  = 2; // 用户兑换后的总积分
+}
+
+// ORDER_LIST
+message OrderListRequest {
+    required BaseRequest PrimaryReq = 1;
+}
+
+message OrderListResponse {
+    message Order {
+        optional uint64 order_id    = 1; // 订单ID
+        optional uint32 goods_id    = 2; // 商品ID
+        optional string goods_name  = 3; // 商品名称
+        optional uint32 goods_count = 4; // 商品数量
+        optional uint32 score       = 5; // 消耗的积分
+        optional string create_time = 6; // 创建时间
+    }
+    required BaseResponse PrimaryResp = 1;
+    repeated Order        order       = 2;
+}
+
+// CHECK_ADDR
+// 成功，返回合法的地址
+message CheckAddrRequest {
+    required BaseRequest PrimaryReq = 1;
+    optional string      province   = 2; // 省
+    optional string      city       = 3; // 市
+    optional string      district   = 4; // 区
+}
+
+message CheckAddrResponse {
+    required BaseResponse PrimaryResp = 1;
+    optional string       province    = 2; // 省
+    optional string       city        = 3; // 市
+    optional string       district    = 4; // 区
+}
+
+// CHECK_ACCOUNT
+// 成功，说明该账号合法且不存在
+message CheckAccountRequest {
+    required BaseRequest PrimaryReq = 1;
+    required string      account    = 2; // 账号
+}
+
+message CheckAccountResponse {
+    required BaseResponse PrimaryResp = 1;
+}

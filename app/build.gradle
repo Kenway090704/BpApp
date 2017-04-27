@@ -1,0 +1,164 @@
+import java.text.SimpleDateFormat
+
+apply plugin: 'com.android.application'
+
+apply plugin: 'bugly'
+bugly {
+    appId = '900044509'
+    appKey = '1r7WnZK1oKdzkMnS'
+    upload = true
+}
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    defaultConfig {
+
+        applicationId rootProject.ext.android["applicationId"]
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+        multiDexEnabled true
+        multiDexKeepProguard file('multidex.pro')
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("../bp.jks")
+            keyAlias 'bp'
+            keyPassword '123456'
+            storePassword '123456'
+        }
+
+        release {
+            storeFile file("../bp.jks")
+            keyAlias 'bp'
+            keyPassword '123456'
+            storePassword '123456'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            android.applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    def outputFile = output.outputFile
+//                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        def fileName = "zero_speed_Android-${defaultConfig.versionName}_${releaseTime() }.apk"
+//                        output.outputFile = new File(outputFile.parent, fileName)
+//                    }
+//                }
+//            }
+            manifestPlaceholders = [appName: "零速争霸", baiduKey:"MhsVtPlQEpphEm30IzGbq49OztHwf6Zp", bugly_id:"900044509", bugly_debug:false]
+            buildConfigField "int", "buildTime", getDebugVersionNameSuffix()
+        }
+
+        debug {
+            debuggable true
+            versionNameSuffix "-debug"
+            applicationIdSuffix ".debug"
+            manifestPlaceholders = [appName: "零速争霸-dev", baiduKey:"qT9BSY58ONjbSn7D4lyo3iwz", bugly_id:"2daa5d6e0d", bugly_debug:true]
+            buildConfigField "int", "buildTime", getDebugVersionNameSuffix()
+        }
+
+    }
+
+
+    productFlavors {
+        alpha {
+
+        }
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [channel_name: name]
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/main/java/', 'build/generated/source/autogen']
+            }
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+//    lintOptions {
+//        abortOnError false
+//    }
+
+}
+
+//task autogen(type : Exec) {
+//    File file = file('../lib_protocols/build/generated/source/autogen');
+//    if (!file.exists()) {
+//        file.mkdirs()
+//    }
+//    commandLine 'protoc','--java_out=../lib_protocols/build/generated/source/autogen','./autogen/Racecar.proto'
+//}
+
+def String getDebugVersionNameSuffix() {
+    Date buildTime = new Date();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+    String buildTimeStr = simpleDateFormat.format(buildTime);
+    return buildTimeStr;
+}
+
+//assembleDebug.dependsOn 'autogen'
+//assembleRelease.dependsOn 'autogen'
+
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile rootProject.ext.dependencies["junit"]
+    androidTestCompile('com.android.support.test:runner:0.5') {
+        exclude group: 'com.android.support'
+    }
+    androidTestCompile('com.android.support.test:rules:0.5') {
+        exclude group: 'com.android.support'
+    }
+
+    compile rootProject.ext.dependencies["appcompat-v7"]
+    compile rootProject.ext.dependencies["support-design"]
+    compile rootProject.ext.dependencies["rx-progurad"];
+    compile rootProject.ext.dependencies["crashreport"];
+    compile rootProject.ext.dependencies["crashreport-native"]
+    compile rootProject.ext.dependencies["multidex"]
+
+    releaseCompile project(path: ':lib_protocols', configuration: "release")
+    releaseCompile project(path: ':p_personalcenter', configuration: "release")
+    releaseCompile project(path: ':p_taskscenter', configuration: "release")
+    releaseCompile project(path: ':p_notice', configuration: "release")
+    releaseCompile project(path: ':p_ranking', configuration: "release")
+    releaseCompile project(path: ':p_games', configuration: "release")
+    releaseCompile project(path: ':p_mall', configuration: "release")
+    releaseCompile project(path: ':p_friends', configuration: "release")
+    releaseCompile project(path: ':p_operations', configuration: "release")
+    releaseCompile project(path: ':p_car', configuration: "release")
+
+    debugCompile project(path: ':lib_protocols', configuration: "debug")
+    debugCompile project(path: ':p_personalcenter', configuration: "debug")
+    debugCompile project(path: ':p_taskscenter', configuration: "debug")
+    debugCompile project(path: ':p_notice', configuration: "debug")
+    debugCompile project(path: ':p_ranking', configuration: "debug")
+    debugCompile project(path: ':p_games', configuration: "debug")
+    debugCompile project(path: ':p_mall', configuration: "debug")
+    debugCompile project(path: ':p_friends', configuration: "debug")
+    debugCompile project(path: ':p_operations', configuration: "debug")
+    debugCompile project(path: ':p_car', configuration: "debug")
+}
+
+apply from: '../autogen.gradle'

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:bp="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="operation"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.Operation"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/item_ll"
+        android:orientation="vertical"
+        android:layout_width="@dimen/welfare_item_width"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/welfare_im"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/welfare_item_height"
+            bp:placeholderImage="@drawable/operation_place_holder"
+            android:scaleType="fitXY"
+            bp:placeholderImageScaleType="fitXY"
+            bp:actualImageScaleType="fitXY"
+            bind:imageUrl='@{operation.image}' />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/welfare_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginTop="8dp"
+            android:text='@{operation.title}'
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="16sp"
+            android:textColor="@color/dark_blue"
+            bind:text="奥飞福利"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/welfare_date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:textColor="@color/dark_blue"
+            bind:text="2016/10/16"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/detail_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/operation_enter_now_drawable"
+            />
+    </LinearLayout>
+</layout>
+

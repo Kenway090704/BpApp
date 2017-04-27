@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="city"
+            type="java.lang.String" />
+
+        <variable
+            name="province"
+            type="java.lang.String" />
+
+        <variable
+            name="district"
+            type="String" />
+
+        <variable
+            name="display"
+            type="String" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg">
+
+        <RelativeLayout
+            android:id="@+id/title_bar_lt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/PageTitleBarStyle"
+            >
+
+            <ImageButton
+                android:id="@+id/back_btn"
+                style="@style/BackBtnStyle"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/page_title_margin_top"
+                android:layout_centerHorizontal="true"
+                style="@style/DefaultTextViewTitleStyle"
+                android:text="@string/choose_binding_location"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/action_btn"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/next_btn_margin_right"
+                android:layout_marginTop="@dimen/smaller_padding"
+                style="@style/DefaultActionButtonStyle_2"
+                android:background="@drawable/auth_location_confirm_drawable"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/gpsLocation_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_bar_lt"
+            android:layout_marginLeft="@dimen/back_btn_margin_left"
+            android:layout_marginRight="@dimen/next_btn_margin_right"
+            android:layout_marginTop="@dimen/smaller_padding"
+            android:background="@drawable/friend_list_item_bg">
+
+            <ImageView
+                android:id="@+id/location_icon_im"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:src="@drawable/location_icon" />
+
+            <ImageView
+                android:id="@+id/location_icon_bg_im"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/location_icon_bg" />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/gpsLocation_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/location_icon_bg_im"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="广州  GPS定位"
+                android:textColor="@color/golden" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/normal_padding"
+                android:src="@drawable/selectable_adorn" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gpsLocation_ll"
+            android:layout_marginLeft="@dimen/back_btn_margin_left"
+            android:layout_marginRight="@dimen/back_btn_margin_left"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/friend_list_item_bg"
+            >
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/chooseLocation_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:enabled="false"
+                android:padding="16dp"
+                android:text="@{city != null ? province +  ' ' + city + ' ' + district: display}"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/normal_padding"
+                android:src="@drawable/selectable_adorn" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>
+

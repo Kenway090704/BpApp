@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="default_thumb_bg_color">#f2f4f3</color>
+    <drawable name="transparent_background">#00000000</drawable>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="half_alpha_black">#7f000000</color>
+    <color name="half_alpha_white">#7fffffff</color>
+    <color name="dark_alpha_black">#D9000000</color>
+    <color name="blue">#ffccddff</color>
+
+    <color name="red">#ffff0101</color>
+    <color name="red_login">#DF3343</color>
+    <color name="grey">#58616d</color>
+    <color name="lightgrey">#737373</color>
+    <color name="light_grey">#e0e0e0</color>
+    <color name="grey_register">#a7a2a4</color>
+    <color name="translucent">#00000000</color>
+    <color name="link_color">#576b95</color>
+
+
+    <color name="common_black">#1D1D26</color>
+    <color name="common_grey">#7F1D1D26</color>
+    <color name="common_dark_grey">#484c4c</color>
+    <color name="common_orange">#FF6E00</color>
+    <color name="common_bg_color">#F4F5F7</color>
+    <color name="common_divider_color">#26000000</color>
+</resources>

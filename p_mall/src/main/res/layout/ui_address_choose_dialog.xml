@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        android:padding="@dimen/dialog_normal_padding">
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/address_choose_tv"
+            style="@style/DefaultDialogTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="@string/mall_choose_ship_address" />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/default_address_label_tv"
+            style="@style/DefaultDialogContentStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/default_address_value_tv"
+            android:layout_toLeftOf="@+id/default_address_value_tv"
+            android:text="选择地址：" />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/default_address_value_tv"
+            style="@style/DefaultDialogContentStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/address_choose_tv"
+            android:layout_below="@+id/address_choose_tv"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="@dimen/smaller_padding"
+            android:gravity="left" />
+
+        <RelativeLayout
+            android:id="@+id/choose_address_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/default_address_value_tv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/large_padding"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/friend_list_item_bg"
+            android:paddingLeft="@dimen/smaller_padding"
+            android:paddingRight="@dimen/smaller_padding">
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:text="@string/mall_choose_other_ship_address" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/selectable_adorn" />
+        </RelativeLayout>
+
+        <LinearLayout
+            style="@style/DialogActionBtnLayoutStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/choose_address_ll"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/larger_padding"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/cancel_btn"
+                style="@style/DefaultButtonStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_view"
+                android:layout_toLeftOf="@+id/layout_view"
+                android:background="@drawable/mall_give_up_exchange_drawable" />
+
+            <Button
+                android:id="@+id/confirm_btn"
+                style="@style/DefaultButtonStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/layout_view"
+                android:layout_toRightOf="@+id/cancel_btn"
+                android:background="@drawable/mall_done_drawable" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
+

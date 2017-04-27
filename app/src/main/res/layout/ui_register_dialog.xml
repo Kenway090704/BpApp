@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bp="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/translucent"
+        android:paddingLeft="@dimen/launcher_ui_panel_margin"
+        android:paddingRight="@dimen/launcher_ui_panel_margin"
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_centerInParent="true"
+            android:padding="16dp"
+            >
+
+            <com.bemetoy.bp.uikit.widget.BpTabStrip
+                android:id="@+id/register_method"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/alpha_logo_im"
+                android:layout_marginLeft="24dp"
+                bp:change_bg_only="false"
+                bp:item_text_checked="@color/white"
+                bp:item_text_uncheck="#ACA7A9">
+
+                <com.bemetoy.bp.uikit.widget.BpTabStripItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/account_register"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    bp:drawableChecked="@drawable/login_method_check"
+                    bp:drawableUnchecked="@drawable/login_method_uncheck"
+                    bp:item_text_checked="@color/white"
+                    bp:item_text_uncheck="@color/grey"/>
+
+                <com.bemetoy.bp.uikit.widget.BpTabStripItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_register"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    bp:drawableChecked="@drawable/login_method_check"
+                    bp:drawableUnchecked="@drawable/login_method_uncheck"
+                    bp:item_text_checked="@color/white"
+                    bp:item_text_uncheck="@color/grey"
+                    />
+
+            </com.bemetoy.bp.uikit.widget.BpTabStrip>
+
+            <com.bemetoy.bp.uikit.widget.WCViewPager
+                android:id="@+id/register_vw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/register_method"
+                android:layout_alignLeft="@+id/register_method"
+                android:layout_marginTop="@dimen/smaller_padding"
+                />
+
+            <ImageView
+                android:id="@+id/alpha_logo_im"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:layout_marginLeft="24dp"
+                android:src="@drawable/alpha_logo"
+                android:layout_centerVertical="true"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/login_now_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/register_vw"
+                android:layout_alignBottom="@+id/register_vw"
+                android:layout_marginRight="@dimen/smallest_padding"
+                android:text="@string/login_now"
+                android:textSize="@dimen/normal_text_size"
+                android:textColor="@color/text_hint_color"
+                />
+
+            <Button
+                android:id="@+id/close_btn"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/register_method"
+                android:background="@drawable/btn_clear"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="BpTabStrip">
+        <attr name="item_backgroud_checked" format="color" />
+        <attr name="item_backgroud_uncheck" format="color"/>
+        <attr name="item_bg_check" format="reference"/>
+        <attr name="item_bg_uncheck" format="reference"/>
+        <attr name="change_bg_only" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="BpRadarChart">
+        <attr name="property_text_color" format="color" />
+        <attr name="property_text_size" format="dimension"/>
+        <attr name="property_view_padding" format="dimension" />
+        <attr name="property_text_stroke_color" format="color" />
+        <attr name="property_text_stroke_width" format="dimension" />
+        <attr name="property_text_font">
+            <enum name="hanyi" value="1" />
+            <enum name="yahei" value="2" />
+        </attr>
+        <attr name="radar_circle_color" format="color"/>
+        <attr name="radar_circle_stroke_width" format="dimension"/>
+        <attr name="radar_value_color" format="color"/>
+        <attr name="radar_value_color_transparent" format="integer"/>
+        <attr name="radar_value_stroke_color" format="color"/>
+        <attr name="radar_value_stroke_width" format="dimension"/>
+        <attr name="radar_property_scale" format="float"/>
+        <attr name="radar_radius" format="dimension"/>
+        <attr name="property_width" format="dimension"/>
+        <attr name="property_height" format="dimension"/>
+        <attr name="radar_bg_color" format="color|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="BpTextView">
+        <attr name="font">
+            <enum name="hanyi" value="1" />
+            <enum name="yahei" value="2" />
+        </attr>
+
+        <attr name="stroke_width" format="dimension|reference"/>
+        <attr name="stroke_color" format="color|reference"/>
+    </declare-styleable>
+
+
+    <attr name="drawableChecked" format="reference"/>
+    <attr name="drawableUnchecked" format="reference"/>
+    <declare-styleable name="BpTabStripItem">
+        <attr name="drawableChecked"/>
+        <attr name="drawableUnchecked"/>
+        <attr name="item_text_checked" format="color" />
+        <attr name="item_text_uncheck" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="BpTabStripImageViewItem" >
+        <attr name="bgChecked" format="reference"/>
+        <attr name="bgUnchecked" format="reference"/>
+        <attr name="drawableChecked"/>
+        <attr name="drawableUnchecked"/>
+    </declare-styleable>
+
+    <declare-styleable name="BpRadioButton">
+        <attr name="bg_checked" format="reference"/>
+        <attr name="bg_uncheck" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="BpTextEdit">
+        <attr name="drawable_focus" format="reference"/>
+        <attr name="drawable_un_focus" format="reference"/>
+        <attr name="bg_un_focus" format="reference"/>
+        <attr name="bg_focus" format="reference"/>
+        <attr name="split_view_color" format="reference|color"/>
+        <attr name="split_view_color_unfocus" format="reference|color"/>
+        <attr name="hint" format="reference|string"/>
+        <attr name="maxLength" format="integer"/>
+        <attr name="singleLine" format="boolean"/>
+        <attr name="inputType">
+            <enum name="text" value="1"/>
+            <enum name="password" value="2"/>
+            <enum name="number" value="3"/>
+        </attr>
+        <attr name="notice" format="string|reference"/>
+        <attr name="notice_view" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="BpMarqueeTextView">
+        <attr name="text" format="string|reference"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="DynamicFlowRadioGroup">
+        <attr name="maxViewCountInOneLine" format="integer"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="BpProgressBar">
+        <attr name="max" format="integer"/>
+        <attr name="progress" format="integer"/>
+        <attr name="backgroundDrawable" format="reference"/>
+        <attr name="progressDrawable" format="reference"/>
+        <attr name="txtSize" format="reference|dimension"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="BpWheelView">
+        <attr name="centerTextSize" format="dimension|reference"/>
+        <attr name="itemTextSize" format="dimension|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="BpImageTextView">
+        <attr name="value" format="integer"/>
+    </declare-styleable>
+
+
+
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<events package="com.bemetoy.bp.autogen.events" template="event.tmpl" >
+    <event name="AuthResult">
+        <result>
+    	    <field name="errorCode" type="int" default="0"/>
+    	    <field name="errorMessage" type="String" default=""/>
+    	    <field name="needFill" type="boolean" default="false"/>
+    	    <field name="province" type="String" default=""/>
+    	    <field name="city" type="String" default=""/>
+    	    <field name="district" type="String" default=""/>
+    	</result>
+    </event>
+
+    <event name="NoticeUpdate">
+
+    </event>
+
+    <event name="AccountUpdate">
+
+    </event>
+
+    <event name="GPSLocationUpdate">
+        <data>
+        	<field name="latitude" type="double" default="0d" />
+        	<field name="longitude" type="double" default="0d" />
+        	<field name="isValid" type="boolean" default="true"/>
+        </data>
+    </event>
+
+    <event name="GameStatusUpdate">
+        <data>
+            <field name="game" type="com.bemetoy.stub.model.GameInfo" default="null" />
+        </data>
+    </event>
+
+    <event name="JoinGame">
+         <data>
+             <field name="gameId" type="int" default="0" />
+         </data>
+    </event>
+
+     <event name="DownLoadFinish">
+          <data>
+              <field name="targetUrl" type="String" default="" />
+              <field name="localPath" type="String" default="" />
+          </data>
+     </event>
+</events>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="userInfo"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.AccountInfo"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg">
+
+        <include android:id="@+id/header_bar" layout="@layout/comm_header" bind:userInfo="@{userInfo}" bind:showScore='@{false}'/>
+
+        <com.bemetoy.bp.uikit.widget.recyclerview.VRecyclerView
+            android:id="@+id/friends_rv"
+            android:layout_marginLeft="36dp"
+            android:layout_marginRight="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_bar"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/place_holder_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"
+            android:text="@string/friend_no_friends"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/large_text_size"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/search_friend_btn"
+            style="@style/DefaultActionButtonStyle_4"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/next_btn_margin_right"
+            android:layout_marginTop="@dimen/action_btn_margin_top"
+            android:background="@drawable/friends_add_friends_drawable"
+            />
+    </RelativeLayout>
+
+</layout>
+

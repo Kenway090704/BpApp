@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="notice_my_message">我的消息</string>
+    <string name="notice_system_message">系统消息</string>
+    <string name="notice_open_game_detail">查看详情</string>
+    <string name="notice_agree">通过</string>
+    <string name="notice_ignore">忽略</string>
+
+    <string name="notice_apply_friend" formatted="false">玩家“%s”请求加您为好友</string>
+    <string name="notice_add_friend_successfully" formatted="false">成功添加“%s”为好友\r\n请在好友列表里查看</string>
+    <string name="notice_add_friend_failed">添加好友失败,请重试</string>
+    <string name="notice_add_friend_pass">已通过</string>
+    <string name="notice_add_friend_ignore">已忽略</string>
+
+    <string name="notice_no_personal_msg">当前暂无个人消息</string>
+    <string name="notice_no_system_msg">当前暂无系统消息</string>
+</resources>

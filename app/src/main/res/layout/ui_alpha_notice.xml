@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="content"
+            type="String"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingBottom="12dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/title_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/smaller_padding"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="#F9F9F9"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:id="@+id/notice_im"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_toLeftOf="@+id/title_tv"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/alpha_notice"
+                />
+
+            <TextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/notice"
+                android:textSize="@dimen/large_text_size"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/title_ll"
+            android:background="#A9A7A7"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dialog_large_padding"
+            android:layout_marginLeft="@dimen/dialog_large_padding"
+            android:layout_below="@+id/title_ll"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="54dp"
+            android:textColor="#A9A7A7"
+            android:textSize="@dimen/larger_text_size"
+            tools:text="用户名或者密码错误!"
+            android:text='@{content}'
+            />
+        
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_below="@+id/content_tv"
+            android:layout_marginTop="54dp"
+            android:background="#EAEBEB" />
+
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/confirm_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_below="@+id/line_view"
+            android:layout_centerHorizontal="true"
+            android:text="@string/confirm"
+            android:background="@color/red_login"
+            android:textColor="@color/white"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:textSize="@dimen/larger_text_size"
+            />
+    </RelativeLayout>
+</layout>
+
+

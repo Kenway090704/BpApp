@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.bemetoy.bp.uikit.BpActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        >
+        <LinearLayout
+            android:id="@+id/retry_view"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingTop="@dimen/large_padding"
+            android:paddingLeft="@dimen/dialog_normal_padding"
+            android:paddingRight="@dimen/dialog_normal_padding"
+            android:paddingBottom="@dimen/small_padding">
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/DefaultDialogTitleStyle"
+                android:text="@string/sorry" />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/content_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="135dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/smaller_padding"
+                android:textColor="@color/white"
+                android:gravity="center"
+                style="@style/DefaultDialogContentStyle"
+                android:text="@string/retry_notice"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/small_padding"
+                android:weightSum="2"
+                >
+
+                <com.bemetoy.bp.uikit.widget.BpButton
+                    android:id="@+id/cancel_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/common_cancel_drawable"
+                    />
+
+                <com.bemetoy.bp.uikit.widget.BpButton
+                    android:id="@+id/retry_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/common_retry_drawable"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loading_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/dialog_bg"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"
+            >
+            <ImageView
+                android:id="@+id/loading_im"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:src="@drawable/loading_circle"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/tips_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/loading"
+                android:gravity="center"
+                android:textColor="@color/golden"
+                tools:text="提示"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

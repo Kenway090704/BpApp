@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <cn.bingoogolapple.refreshlayout.BGARefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.bemetoy.bp.uikit.widget.recyclerview.VRecyclerView
+                android:id="@+id/data_rv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+        </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            tools:text="您还未报名参加赛事"
+            android:textSize="@dimen/large_text_size"
+            android:textColor="@color/white"
+            />
+
+    </RelativeLayout>
+
+
+</layout>

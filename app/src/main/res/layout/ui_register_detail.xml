@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".ui.auth.RegisterDetailUI">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg">
+
+        <RelativeLayout
+            android:id="@+id/title_bar_lt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/PageTitleBarStyle"
+            >
+
+            <ImageButton
+                android:id="@+id/back_btn"
+                style="@style/BackBtnStyle"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/page_title_margin_top"
+                android:layout_centerHorizontal="true"
+                style="@style/DefaultTextViewTitleStyle"
+                android:text="@string/finish_detail_title"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/action_btn"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/next_btn_margin_right"
+                android:layout_marginTop="@dimen/smaller_padding"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:background="@drawable/auth_location_confirm_drawable"
+                android:visibility="invisible"
+                />
+        </RelativeLayout>
+
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/nick_name_label_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/nick_name_et"
+            android:background="@drawable/register_label_bg"
+            style="@style/RegisterLabelStyle"
+            android:layout_marginTop="68dp"
+            android:text="@string/nickname" />
+
+        <EditText
+            android:id="@+id/nick_name_et"
+            style="@style/DefaultEditTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="96dp"
+            android:maxLength="12"
+            android:hint="@string/register_nickname_hint"
+            />
+
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/finish_detail_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/common_queren_drawable"
+            />
+    </RelativeLayout>
+</layout>

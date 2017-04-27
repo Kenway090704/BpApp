@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.bemetoy.bp.protocols.ProtocolConstants"/>
+        <import type="android.view.View"/>
+        <variable name="username" type="String"/>
+        <variable name="time" type="String"/>
+        <variable
+            name="action"
+            type="Integer"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/notice_item_bg"
+        android:paddingBottom="@dimen/smallest_padding"
+        android:paddingTop="@dimen/smaller_padding"
+        android:paddingLeft="20dp">
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/personal_address_list_item_txt_size_1"
+            android:textColor="@color/yellow"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:text="@{time}"
+            tools:text="2016/05/16"/>
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/personal_address_list_item_txt_size_2"
+            android:textColor="@color/white"
+            android:layout_below="@id/time_tv"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/ignore_btn"
+            android:layout_marginTop="@dimen/smallest_padding"
+            android:gravity="left|center_vertical"
+            android:text="@{@string/notice_apply_friend(username)}"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="玩家“大王派我来巡山”请求添加您为好友"/>
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/agree_btn"
+            style="@style/ListitemActionButtonStyle_2"
+            android:background="@drawable/notice_pass_drawable"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/small_padding"
+            android:visibility='@{action == ProtocolConstants.JsonValue.ACTION_UN_HANDLE ? View.VISIBLE : View.GONE}'
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/ignore_btn"
+            style="@style/ListitemActionButtonStyle_2"
+            android:background="@drawable/notice_ignore_drawable"
+            android:layout_toLeftOf="@id/agree_btn"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/small_padding"
+            android:visibility='@{action == ProtocolConstants.JsonValue.ACTION_UN_HANDLE ? View.VISIBLE : View.GONE}'
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/result_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/normal_padding"
+            android:enabled="false"
+            android:gravity="center"
+            android:textSize="@dimen/list_item_btn_size"
+            android:visibility='@{action == ProtocolConstants.JsonValue.ACTION_UN_HANDLE ? View.GONE : View.VISIBLE}'
+            android:text='@{action == ProtocolConstants.JsonValue.ACTION_IGNORE ? @string/notice_add_friend_ignore : @string/notice_add_friend_pass}'
+            android:textColor="#5892D3"
+            tools:text="已通过"
+            />
+
+    </RelativeLayout>
+
+
+</layout>

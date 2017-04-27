@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bp="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/phone_main_view">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.bemetoy.bp.uikit.widget.BpEditText
+                    android:id="@+id/phone_ed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/auth_input_focus_bg"
+                    bp:split_view_color="@color/red"
+                    bp:split_view_color_unfocus="@color/grey"
+                    bp:drawable_focus="@drawable/phone_focus"
+                    bp:drawable_un_focus ="@drawable/phone_un_focus"
+                    bp:bg_un_focus="@drawable/auth_input_unfocus_bg"
+                    bp:bg_focus="@drawable/auth_input_focus_bg"
+                    bp:hint="@string/input_phone_hint"
+                    bp:inputType="number"
+                    >
+                    <Button
+                        android:id="@+id/clear_phone_btn"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:background="@drawable/btn_clear"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="8dp"
+                        android:visibility="invisible"
+                        />
+                </com.bemetoy.bp.uikit.widget.BpEditText>
+
+
+                <com.bemetoy.bp.uikit.widget.BpEditText
+                    android:id="@+id/image_code_ed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/smaller_padding"
+                    android:layout_below="@+id/phone_ed"
+                    android:background="@drawable/auth_input_focus_bg"
+                    android:padding="2dp"
+                    bp:split_view_color="@color/red"
+                    bp:split_view_color_unfocus="@color/grey"
+                    bp:drawable_focus="@drawable/pwd_notice_focus"
+                    bp:drawable_un_focus ="@drawable/pwd_notice_unfocus"
+                    bp:bg_un_focus="@drawable/auth_input_unfocus_bg"
+                    bp:bg_focus="@drawable/auth_input_focus_bg"
+                    bp:inputType="number"
+                    bp:hint="@string/alpha_code_register_hint">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/image_code_im"
+                        android:layout_width="120dp"
+                        android:layout_height="54dp"
+                        android:layout_alignParentRight="true"
+                        bp:actualImageScaleType="fitXY"
+                        bp:placeholderImage="@drawable/image_code_placeholder"
+                        bp:placeholderImageScaleType="fitXY"
+                        />
+                </com.bemetoy.bp.uikit.widget.BpEditText>
+
+                <com.bemetoy.bp.uikit.widget.BpEditText
+                    android:id="@+id/code_ed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/smaller_padding"
+                    android:layout_below="@+id/image_code_ed"
+                    android:layout_toLeftOf="@+id/code_time_tv"
+                    android:background="@drawable/auth_input_focus_bg"
+                    bp:split_view_color="@color/red"
+                    bp:split_view_color_unfocus="@color/grey"
+                    bp:drawable_focus="@drawable/pwd_notice_focus"
+                    bp:drawable_un_focus ="@drawable/pwd_notice_unfocus"
+                    bp:bg_un_focus="@drawable/auth_input_unfocus_bg"
+                    bp:bg_focus="@drawable/auth_input_focus_bg"
+                    bp:hint="@string/input_phone_validation_code"/>
+
+                <com.bemetoy.bp.uikit.widget.BpButton
+                    android:id="@+id/code_time_tv"
+                    android:layout_width="150dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/code_ed"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:background="@drawable/validate_code_selector"
+                    android:text="@string/get_verify_code"
+                     />
+            </RelativeLayout>
+        </ScrollView>
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phone_main_view"
+            android:layout_marginTop="@dimen/smallest_padding"
+            android:background="@color/red_login"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            bp:font="yahei" />
+
+    </RelativeLayout>
+
+</layout>

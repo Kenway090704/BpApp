@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/launcher_bg"
+    tools:context=".ui.LauncherUI">
+
+
+    <View
+        android:id="@+id/center_view"
+        android:layout_width="1px"
+        android:layout_height="1px"
+        android:layout_centerInParent="true"
+        />
+
+    <ImageButton
+        android:id="@+id/register_btn"
+        android:src="@drawable/auth_register_txt"
+        style="@style/IndexUIButtonStyle"
+        android:layout_toLeftOf="@+id/center_view"
+        android:layout_alignTop="@+id/center_view"
+        android:layout_marginTop="@dimen/largest_padding"
+        android:background="@drawable/auth_index_register_drawable"
+        />
+
+    <ImageButton
+        android:id="@+id/login_btn"
+        android:src="@drawable/auth_login_txt"
+        style="@style/IndexUIButtonStyle"
+        android:layout_toRightOf="@+id/center_view"
+        android:layout_alignTop="@+id/center_view"
+        android:layout_marginTop="@dimen/largest_padding"
+        android:background="@drawable/auth_index_login_drawable"
+        />
+
+    <com.bemetoy.bp.uikit.widget.BpTextView
+        android:id="@+id/version_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/large_padding"
+        android:layout_marginBottom="@dimen/large_padding"
+        android:textColor="@color/golden"
+        android:text="V 0.0.6"
+        />
+
+    <com.bemetoy.bp.uikit.widget.BpTextView
+        android:id="@+id/buildTime_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/version_tv"
+        android:layout_toRightOf="@+id/version_tv"
+        android:textColor="@color/golden"
+        android:text="V 0.0.6"
+        />
+
+
+</RelativeLayout>

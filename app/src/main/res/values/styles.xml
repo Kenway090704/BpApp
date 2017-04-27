@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HomePageGameStyleTitle">
+        <item name="android:textColor">@color/golden</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="HomePageGameStyleContent" parent="HomePageGameStyleTitle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginBottom">@dimen/smallest_padding</item>
+    </style>
+
+    <style name="HomePageGameStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.25</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:paddingLeft">1dp</item>
+        <item name="android:paddingRight">36dp</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:paddingTop">1dp</item>
+        <item name="android:background">@drawable/hot_game_bg</item>
+    </style>
+
+
+    <style name="HomePageGameImageViewStyle">
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="actualImageScaleType">fitXY</item>
+    </style>
+
+    <style name="HomePageGameHotStyle">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:src">@drawable/home_game_hot_icon</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+    </style>
+
+    <style name="HomePageTab.Item">
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/function_item_end_bg</item>
+    </style>
+    <style name="HomePageTab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="HomePageTab.Image">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
+    </style>
+
+    <style name="HomePageTab.Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleX">1</item>
+        <item name="android:scaleY">1</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+</resources>

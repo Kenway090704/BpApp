@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="content" type="String"/>
+        <import type="com.bemetoy.bp.protocols.ProtocolConstants"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/register_bg"
+        android:layout_marginBottom="@dimen/title_bar_margin_bottom">
+
+        <RelativeLayout
+            android:id="@+id/title_bar_lt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/PageTitleBarStyle">
+
+            <ImageButton
+                android:id="@+id/back_btn"
+                style="@style/BackBtnStyle"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpTextView
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/page_title_margin_top"
+                android:layout_centerHorizontal="true"
+                style="@style/DefaultTextViewTitleStyle"
+                android:text="@string/personal_center_edit_nickname"
+                />
+
+            <com.bemetoy.bp.uikit.widget.BpButton
+                android:id="@+id/action_btn"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/next_btn_margin_right"
+                android:layout_marginTop="@dimen/smaller_padding"
+                style="@style/DefaultActionButtonStyle_5"
+                android:background="@drawable/personal_avatar_save_back_drawable"
+                />
+        </RelativeLayout>
+
+        <EditText
+            style="@style/DefaultEditTextStyle"
+            android:id="@+id/username_ed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/title_bar_lt"
+            android:layout_marginTop="@dimen/min_padding"
+            android:layout_marginLeft="@dimen/back_btn_margin_left"
+            android:layout_marginRight="@dimen/next_btn_margin_right"
+            android:hint="@string/personal_center_edit_nickname_hint"
+            android:background="@drawable/nickname_edit_bg"
+            android:layout_margin="@dimen/normal_padding"
+            android:text="@{content}"
+            android:maxLength="12"
+            android:inputType="text" />
+    </RelativeLayout>
+</layout>
+
+

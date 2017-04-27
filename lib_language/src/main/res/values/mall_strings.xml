@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mall_title">积分兑换商城</string>
+    <string name="part_detail">详细信息</string>
+    <string name="buy_part">兑换</string>
+    <string name="sorry">抱歉</string>
+    <string name="score_not_enough">积分不足，您可以完成任务赚取积分</string>
+    <string name="to_do_task">去做任务</string>
+    <string name="confirm_exchange">确认兑换</string>
+    <string name="exchange_notice" formatted="false">您将消耗%d积分兑换：%s</string>
+    <string name="recommend">推荐</string>
+    <string name="car">赛车</string>
+    <string name="part">配件</string>
+    <string name="my_order">兑换记录</string>
+    <string name="score">积分</string>
+    <string name="current_score">您当前的积分：</string>
+    <string name="need_score">需积分</string>
+    <string name="mall_choose_ship_address">请选择寄送地址</string>
+    <string name="mall_choose_other_ship_address">选择其他地址</string>
+    <string name="mall_exchange_notice">我们将按照您的地址邮寄给您，如需修改邮寄地址等信息请到个人中心变更。</string>
+    <string name="mall_exchange_part_name">成功兑换：%s</string>
+    <string name="mall_no_exchange_record">暂无兑换记录</string>
+</resources>

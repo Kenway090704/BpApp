@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="gameInfo"
+            type="com.bemetoy.stub.model.GameInfo"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background='@{gameInfo.currentState != 2 ? @drawable/game_list_item_bg : @drawable/game_list_item_bg_finished}'
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/game_type_im"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            bind:placeholderImage="@drawable/game_type_pk"
+            bind:placeholderImageScaleType="fitXY"
+            />
+
+        <ImageView
+            android:id="@+id/gameHot_im"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/game_status_icon_finished"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/game_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/game_type_im"
+            android:layout_toLeftOf="@+id/join_btn"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/golden"
+            android:textSize="@dimen/large_text_size"
+            android:paddingRight="12dp"
+            android:text='@{gameInfo.title}'
+            android:ellipsize="end"
+            android:maxLines="1"
+            />
+
+        <ImageView
+            android:id="@+id/game_time_label_tv"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_below="@+id/game_name_tv"
+            android:layout_alignLeft="@+id/game_name_tv"
+            android:layout_marginTop="4dp"
+            android:src='@{gameInfo.currentState != 2 ? @drawable/comm_dot_yellow : @drawable/comm_dot_white}'
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/game_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/game_time_label_tv"
+            android:layout_below="@+id/game_name_tv"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_text_size"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpButton
+            android:id="@+id/join_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            style="@style/DefaultButtonStyle"
+            android:background="@drawable/game_query_game_detail_drawable"
+            />
+
+    </RelativeLayout>
+
+</layout>
+
+

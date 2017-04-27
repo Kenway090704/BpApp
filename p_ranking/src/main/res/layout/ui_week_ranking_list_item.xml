@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="userInfo"
+            type="com.bemetoy.bp.autogen.protocol.Racecar.AccountInfo"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/userInfo_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ranking_item_height"
+        android:paddingRight="@dimen/normal_padding"
+        android:paddingLeft="@dimen/min_padding"
+        android:background="@drawable/ranking_item_bg"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:weightSum="10"
+        tools:context=".ui.RankingUI">
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/ranking_tv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/RankingItemStyle"
+            android:textStyle="bold|italic"
+            android:textSize="22sp"
+            android:ellipsize="end"
+            android:maxLength="12"
+            android:gravity="center"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/username_tv"
+            android:layout_width="0dp"
+            android:layout_weight="2.2"
+            style="@style/RankingItemStyle"
+            android:ellipsize="end"
+            android:text="@{userInfo.name}"
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/level_tv"
+            style="@style/RankingItemStyle"
+            android:layout_width="0dp"
+            android:layout_weight="2.8"
+            android:text='@{userInfo.levelName + " +" + userInfo.expWeek }'
+
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/carname_tv"
+            style="@style/RankingItemStyle"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:text='@{userInfo.carName}'
+            />
+
+        <com.bemetoy.bp.uikit.widget.BpTextView
+            android:id="@+id/location_tv"
+            style="@style/RankingItemStyle"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:text='@{userInfo.province + "|" + userInfo.city}'
+            />
+
+    </LinearLayout>
+</layout>
+
+
