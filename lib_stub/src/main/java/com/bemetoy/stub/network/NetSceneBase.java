@@ -49,6 +49,7 @@ public abstract class NetSceneBase extends IRequest {
         return builder.build();
     }
 
+
     public int getCmdId() {
         return cmdID;
     }
@@ -67,4 +68,11 @@ public abstract class NetSceneBase extends IRequest {
     public ResponseCallBack getResponseCallBack() {
         return callBack;
     }
+
+
+
+
+
+
+
 }

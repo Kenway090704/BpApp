@@ -86,7 +86,6 @@ public class GamesLocationFragment extends SupportMapFragment {
     // the last gps location object.
     private BDLocation mLastGPSLocation;
     BitmapDescriptor gamePlayingIcon = BitmapUtil.getBitmapDescriptor(R.drawable.game_map_playing);
-    ;
     BitmapDescriptor gameAddressIcon = BitmapUtil.getBitmapDescriptor(R.drawable.game_map_point);
     BitmapDescriptor gameFinishedIcon = BitmapUtil.getBitmapDescriptor(R.drawable.game_map_finished);
     BitmapDescriptor gameComingSoonIcon = BitmapUtil.getBitmapDescriptor(R.drawable.game_map_coming);
@@ -102,7 +101,8 @@ public class GamesLocationFragment extends SupportMapFragment {
 
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View view = super.onCreateView(layoutInflater, viewGroup, bundle);
+        View view = super.onCreateView(layoutInflater, viewGroup, bundle);//父类中已经创建了mapView
+
         init();
         Log.d(TAG, "current GamesLocationFragment %s invoke onCreateView()", this.toString());
         return view;

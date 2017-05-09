@@ -22,9 +22,11 @@ import com.bemetoy.stub.util.AppUtil;
  */
 public class TaskCenterLogic {
 
+
     public static void toDoTask(Context context, int pageId) {
         switch (pageId) {
             case ProtocolConstants.PageId.GAME:
+
                 PluginStubBus.doAction(context, PluginConstants.Plugin.PLUGIN_NAME_P_GAMES,
                         PluginConstants.MyCard.Action.CMD_START_MYCAR_UI, 0, null);
                 break;

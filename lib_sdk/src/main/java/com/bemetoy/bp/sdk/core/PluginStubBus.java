@@ -32,6 +32,7 @@ public class PluginStubBus {
             Log.w(TAG, "doAction failed, pluginStub null");
             return false;
         }
+
         return pluginStub.doAction(context, cmd, data, flag, null);
     }
 

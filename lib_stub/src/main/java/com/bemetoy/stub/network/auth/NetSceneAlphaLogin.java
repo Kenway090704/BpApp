@@ -94,10 +94,10 @@ public class NetSceneAlphaLogin extends NetSceneBase {
     /**
      * Create the auth request from the local file.by default it is
      * auto auth.
-     *
      * @return
      */
     public static NetSceneAlphaLogin buildFromFile() {
+        //从acc.data文件中获取帐号和密码
         CfgFs cfgFs = new CfgFs(StorageConstants.ACCOUNT_DATA_PATH);
         String username = cfgFs.getString(StorageConstants.Info_Key.USER_NAME, null);
         String password = cfgFs.getString(StorageConstants.Info_Key.MD5_PASSWORD, null);

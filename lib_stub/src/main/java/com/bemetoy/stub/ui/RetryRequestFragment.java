@@ -26,6 +26,7 @@ public abstract class RetryRequestFragment<ViewData extends ViewDataBinding> ext
 
     /**
      * if the request failed , then should invoke this method ,set shouldRetry = true.
+     * 重新请求
      * @param retry
      */
     protected void setShouldRetry(boolean retry) {

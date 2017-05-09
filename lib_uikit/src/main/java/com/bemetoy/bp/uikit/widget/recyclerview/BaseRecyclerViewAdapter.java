@@ -25,12 +25,15 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
         View itemView = createItemView(parent, viewType);
         BaseViewHolder<T> holder = new BaseViewHolder<T>(itemView, viewType);
         holder.onCreateBinding(itemView, viewType);
+        // 创建返回一个ViewHolde
         return holder;
     }
 
     @Override
     public void onBindViewHolder(BaseViewHolder<T> holder, int position) {
         holder.onBindView(this, position);
+        // 这里是刷新Item
+
     }
 
     @Override
@@ -40,6 +43,7 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
 
     @Override
     public int getItemCount() {
+        //items有多少个数据
         return mItems.size();
     }
 
@@ -76,12 +80,11 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
         if (list == null || list.isEmpty()) {
             return;
         }
-        mItems.addAll(0,list);
+        mItems.addAll(0, list);
     }
 
 
     /**
-     *
      * @author AlbieLiang
      */
     public static class BaseViewHolder<T> extends RecyclerView.ViewHolder implements IViewHolder<T> {
@@ -94,7 +97,7 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
         }
 
         public final void onBindView(BaseRecyclerViewAdapter<T> adapter, int position) {
-            if(position >= adapter.getItems().size() || position < 0) {
+            if (position >= adapter.getItems().size() || position < 0) {
                 return;
             }
             onBind(adapter.getItem(position), mViewType);
@@ -106,7 +109,6 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
         }
 
         /**
-         *
          * @param viewType
          */
         @Override
@@ -121,7 +123,6 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
     }
 
     /**
-     *
      * @param <T>
      */
     public interface IViewHolder<T> {

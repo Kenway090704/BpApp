@@ -145,6 +145,7 @@ public class RankingUI extends AccountChangeActivity<UiRankingBinding> {
 
         @Override
         public void onClick(View v) {
+            //创建点击任意一个item时,弹出的
             final BpDialog<UiRankingRuleBinding> dialog = new BpDialog(RankingUI.this, R.layout.ui_ranking_rule);
             dialog.setCancelable(true);
             LayoutInflater inflater = LayoutInflater.from(RankingUI.this);

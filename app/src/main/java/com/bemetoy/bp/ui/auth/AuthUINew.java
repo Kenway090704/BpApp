@@ -76,6 +76,8 @@ public class AuthUINew extends BaseDataBindingActivity<UiLoginDialogBinding> {
             }
         });
 
+
+
         mEventObserver = new AccurateEventObserver<AuthResultEvent>() {
 
             @Override

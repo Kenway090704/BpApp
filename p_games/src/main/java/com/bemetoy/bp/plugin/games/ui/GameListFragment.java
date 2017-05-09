@@ -200,7 +200,7 @@ public class GameListFragment extends RetryRequestFragment<UiGamesListBinding> i
                 mBinding.refreshLayout.endLoadingMore();
             }
         });
-        netSceneGetGame.doScene();
+        netSceneGetGame.doScene();//联网请求数据
     }
 
     @Override
@@ -220,7 +220,7 @@ public class GameListFragment extends RetryRequestFragment<UiGamesListBinding> i
      */
     private void updateGameList(List<Racecar.Game> list, boolean clearOld) {
         Log.i(TAG, "games size is %d", list.size());
-        List<GameInfo> gameInfoList = GameInfo.transformList(list);
+        List<GameInfo> gameInfoList = GameInfo.transformList(list);//将新获取的数据添加到gameInfoList
 
         if(clearOld) {
             adapter.clearData();

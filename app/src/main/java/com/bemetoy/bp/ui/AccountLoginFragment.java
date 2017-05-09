@@ -98,7 +98,7 @@ public class AccountLoginFragment extends BaseDataBindingFragment<UiAccountLogin
                 }
             }
         });
-
+          //点击loginbtn执行的动作
         Subscription subscription = RxView.clicks(mBinding.loginBtn).throttleFirst(500, TimeUnit.MILLISECONDS).
                 subscribe(new Action1<Void>() {
                     @Override
@@ -121,6 +121,7 @@ public class AccountLoginFragment extends BaseDataBindingFragment<UiAccountLogin
         if (RegisterLogic.validatePWD(password)) {
             loadingDialog.show();
             String pwdMD5 = MD5.getMessageDigest(mBinding.passwordEd.getText().toString().getBytes());
+            //与服务器连接
             NetSceneAlphaLogin netSceneAlphaLogin = new NetSceneAlphaLogin(alphaAccount, pwdMD5, null);
             netSceneAlphaLogin.doScene();
             mBinding.loginBtn.setEnabled(false);

@@ -32,7 +32,9 @@ public class WebViewUI extends BpActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndroidBug5497Workaround.assistActivity(this);
+          //无法获取网页
         String url = getIntent().getExtras().getString(ProtocolConstants.IntentParams.URL_INFO);
+        Log.e(TAG,"url=="+url);
         boolean showBack = getIntent().getBooleanExtra(ProtocolConstants.IntentParams.SHOW_BACK, true);
         if(!showBack) {
             backBtn.setVisibility(View.INVISIBLE);

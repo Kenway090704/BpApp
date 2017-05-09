@@ -34,7 +34,7 @@ public final class ProtocolConstants {
     public static final String U3D_UPDATE_URL_DEBUG = "http://s.bemetoy.com/download/b_project/AndroidAssets/";
     public static final String U3D_UPDATE_URL_PROD = "http://zm.cdn.gdalpha.com/download/AndroidAssets/";
 
-    public static final String DEFAULT_TMALL_URL = "https://auldeywj.tmall.com/";
+    public static final String DEFAULT_TMALL_URL = "https://auldeywj.tmall.com/";//  https://auldeywj.tmall.com/   https://auldeywj.world.tmall.com
 
 
     public static final String GO_BACK_URL = "http://goback";

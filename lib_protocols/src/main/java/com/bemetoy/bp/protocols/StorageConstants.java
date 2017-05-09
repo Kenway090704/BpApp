@@ -28,7 +28,7 @@ public class StorageConstants {
 		DATA_ROOT = context.getFilesDir().getParentFile().getAbsolutePath() + "/";
 		DATAROOT_MOBILEMEM_PATH = DATA_ROOT + "BpApp";
 		USER_DATA_PATH = DATA_ROOT + FileName.USER_FILE;
-		ACCOUNT_DATA_PATH = DATA_ROOT + FileName.DATA_FILE;
+		ACCOUNT_DATA_PATH = DATA_ROOT + FileName.DATA_FILE;//+acc.data
 		COMM_SETTING_PATH = DATA_ROOT + FileName.MISC_FILE;
 
 		if(context.getExternalFilesDir("apk") != null) {

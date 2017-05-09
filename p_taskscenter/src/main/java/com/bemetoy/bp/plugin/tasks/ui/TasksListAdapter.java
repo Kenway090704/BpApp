@@ -11,6 +11,7 @@ import com.bemetoy.bp.plugin.tasks.R;
 import com.bemetoy.bp.plugin.tasks.databinding.TasksListItemBinding;
 import com.bemetoy.bp.plugin.tasks.model.TaskCenterLogic;
 import com.bemetoy.bp.protocols.ProtocolConstants;
+import com.bemetoy.bp.sdk.tools.Log;
 import com.bemetoy.bp.uikit.widget.recyclerview.ExtRecyclerViewAdapter;
 import com.jakewharton.rxbinding.view.RxView;
 
@@ -116,6 +117,7 @@ public class TasksListAdapter extends ExtRecyclerViewAdapter<Racecar.Task> {
             }
             switch (task.getStatus()) {
                 case ProtocolConstants.TaskStatus.UN_FINISH:
+                    Log.e("TaskListAdapter",task.getJumpId()+"");
                     TaskCenterLogic.toDoTask(context, task.getJumpId());
                     break;
                 case ProtocolConstants.TaskStatus.FINISHED:

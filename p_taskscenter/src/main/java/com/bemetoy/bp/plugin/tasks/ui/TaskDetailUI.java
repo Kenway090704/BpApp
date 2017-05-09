@@ -9,6 +9,7 @@ import com.bemetoy.bp.plugin.tasks.R;
 import com.bemetoy.bp.plugin.tasks.databinding.UiTaskDetailBinding;
 import com.bemetoy.bp.plugin.tasks.model.TaskCenterLogic;
 import com.bemetoy.bp.protocols.ProtocolConstants;
+import com.bemetoy.bp.sdk.tools.Log;
 import com.bemetoy.bp.uikit.BaseDataBindingActivity;
 
 /**

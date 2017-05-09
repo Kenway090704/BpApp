@@ -160,6 +160,9 @@ public class GamesUI extends AccountChangeActivity<UiGamesBinding> {
 
     }
 
+    /**
+     * 获取本地存储的帐号信息
+     */
     private void refresh() {
         mAccountInfo = AccountLogic.getAccountInfo();
         mBinding.setUserInfo(mAccountInfo);

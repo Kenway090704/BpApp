@@ -29,6 +29,10 @@ public class RequestRetryManager {
 
     }
 
+    /***
+     * 单例模式,
+     * @return
+     */
     public static RequestRetryManager getMgr(){
         return requestRetryManager;
     }

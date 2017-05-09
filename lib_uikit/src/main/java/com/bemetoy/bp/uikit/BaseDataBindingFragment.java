@@ -32,7 +32,7 @@ public abstract class BaseDataBindingFragment<ViewData extends ViewDataBinding> 
             contentView = inflater.inflate(getLayoutId(),null);
         }
         if(contentView != null) {
-            mBinding = DataBindingUtil.bind(contentView);
+            mBinding = DataBindingUtil.bind(contentView);//
             FragmentBaseDatabindingContainerBinding rootViewBinding = DataBindingUtil.bind(rootView);
             rootViewBinding.rootContainer.removeAllViews();
             rootViewBinding.rootContainer.addView(contentView,new ViewGroup.LayoutParams(

@@ -54,6 +54,7 @@ public class AccountManager {
             mAccountStateListener.onReset(this);
         }
         mAccountInfo.reset();
+
         AccountLogic.resetAccountInfo();
         //AppCore.getCore().getRequestQueue().cancelAllRequest();
         Log.i(TAG, "account manager reset finished.");

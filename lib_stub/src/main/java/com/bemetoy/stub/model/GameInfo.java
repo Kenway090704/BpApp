@@ -16,6 +16,7 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
+ * 比赛信息bean类
  * Created by Tom on 2016/4/22.
  */
 public class GameInfo implements Parcelable {

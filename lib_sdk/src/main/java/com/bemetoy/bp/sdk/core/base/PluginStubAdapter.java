@@ -15,6 +15,7 @@ public class PluginStubAdapter implements IPluginStub {
 
     @Override
     public boolean doAction(Context context, int cmd, Bundle data, int flag, OnActionResult onActionResult) {
+
         return false;
     }
 

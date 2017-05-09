@@ -48,6 +48,7 @@ public class NetSceneGetGame extends NetSceneBase {
         builder.setCount(mCount);
         builder.setOffset(mOffset);
         builder.setPrimaryReq(builderBaseRequest());
+        Log.e(TAG,"builder.build");
         return builder.build().toByteArray();
     }
 }

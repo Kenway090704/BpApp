@@ -58,6 +58,7 @@ public class PluginStubApp extends PluginStubAdapter {
                 break;
 
             case PluginConstants.App.Action.CMD_START_HOME_PAGE:
+
                 startActivity(context, HomePageUI.class, flag, data);
                 break;
 
@@ -75,7 +76,7 @@ public class PluginStubApp extends PluginStubAdapter {
                 intent.putExtra(ProtocolConstants.IntentParams.URL_INFO, HomePageUI.getTmallStoreUrl());
                 context.startActivity(intent);
         }
-        return super.doAction(context, cmd, data, flag, onActionResult);
+        return super.doAction(context, cmd, data, flag, onActionResult);//false
     }
 
 

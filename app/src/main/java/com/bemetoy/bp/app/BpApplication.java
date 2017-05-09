@@ -83,8 +83,10 @@ public class BpApplication extends MultiDexApplication {
         });
         // Optimize
         AppCore.getCore().initialize();
-
+        //帐号管理类,判断是否登录等
         AccountManager accountManager = AppCore.getCore().getAccountManager();
+
+        //初始化网络请求队列
         RequestQueue requestQueue = AppCore.getCore().getRequestQueue();
 
         AppCore.getCore().setDispatcher(new BpNetWorkDispatcher(accountManager,requestQueue,

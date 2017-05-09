@@ -61,6 +61,11 @@ public class RequestQueueImpl implements RequestQueue {
         queue.start();
     }
 
+    /**
+     * 获取请求队列,并且开启执行请求
+     * @param context
+     * @return
+     */
     public static RequestQueueImpl getNetSceneQueue(Context context) {
         synchronized (lock) {
             if (instance == null) {

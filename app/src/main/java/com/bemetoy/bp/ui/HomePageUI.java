@@ -82,6 +82,8 @@ public class HomePageUI extends AccountChangeActivity<UiHomePageBinding> {
     private static String defaultTmallUrl = ProtocolConstants.DEFAULT_TMALL_URL;
     private U3DLaunchFinishBroadCastReceiver receiver = null;
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -217,6 +219,9 @@ public class HomePageUI extends AccountChangeActivity<UiHomePageBinding> {
                 }
 
                 Intent intent = new Intent(HomePageUI.this, WebViewUI.class);
+                if (defaultTmallUrl.isEmpty()){
+                    defaultTmallUrl=ProtocolConstants.DEFAULT_TMALL_URL;
+                }
                 intent.putExtra(ProtocolConstants.IntentParams.URL_INFO, defaultTmallUrl);
                 startActivity(intent);
             }
